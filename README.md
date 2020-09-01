@@ -1,3 +1,5 @@
+[![Live demo](preview.png)](https://christianoellers.github.io/Vector-Trek)
+
 # Vektor-Trek
 
 - [About](#about)
@@ -13,12 +15,6 @@
 <br>
 
 ---
-
-[![GitHub release](https://img.shields.io/github/release/ChristianOellers/Vector-Trek.svg)](https://github.com/ChristianOellers/Vector-Trek/releases)
-
-
-[![Live demo](preview.png)](https://christianoellers.github.io/Vector-Trek)
-
 
 <br><br>
 
