@@ -86,6 +86,7 @@ Fix
 - Collision: Vector math sometimes creates extreme values
 
 Optimise
+- Debounce hit testing to prevent fast accumulating scores
 - Remove 'dead objects from scene (projectiles) OR implement an 'object pool'
 - OOP
   - Decouple state, view, controls, score ...
@@ -95,7 +96,8 @@ Performance
 - HUD + Score should be rendered in HTML, not Canvas
 - Use faster sin/cos calculations; e.g. lookup tables or polynomial approximation curves
 
-New features?
+New features
+- Player should bounce off the boundaries (or slow down) and not be able to leave the field
 - Reacting to score, player could get different weapons or conditional states over time
 - Implement 'scene' concept to manage all objects (e.g. pause, show, hide) and switch between multiple scenes
 
