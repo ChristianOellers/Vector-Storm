@@ -1,6 +1,6 @@
-[![Live demo](preview.png)](https://christianoellers.github.io/Vector-Trek)
+[![Live demo](preview.png)](https://christianoellers.github.io/Vector-Storm)
 
-# Vektor-Trek
+# Vektor-Storm
 
 - [About](#about)
 - [Examples](#examples)
@@ -16,7 +16,7 @@
 
 ---
 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ChristianOellers_Vector-Trek&metric=alert_status)](https://sonarcloud.io/dashboard?id=ChristianOellers_Vector-Trek)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ChristianOellers_Vector-Storm&metric=alert_status)](https://sonarcloud.io/dashboard?id=ChristianOellers_Vector-Storm)
 
 
 <br><br>
@@ -33,7 +33,7 @@ Over time the code got a bit messy and it's not intended to sustain ;)
 
 ## Examples
 
-- [Live demo »](https://christianoellers.github.io/Vector-Trek/)
+- [Live demo »](https://christianoellers.github.io/Vector-Storm)
 
 
 <br><br>
