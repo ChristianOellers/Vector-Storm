@@ -1,6 +1,6 @@
 [![Live demo](preview.png)](https://christianoellers.github.io/Vector-Storm)
 
-# Vektor-Storm
+# Vector-Storm
 
 - [About](#about)
 - [Examples](#examples)
