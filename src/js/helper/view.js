@@ -1,3 +1,5 @@
+//@flow
+
 class View {
   constructor(params) {
     // Instance

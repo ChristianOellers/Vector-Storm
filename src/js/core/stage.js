@@ -1,3 +1,4 @@
+//@flow
 class Stage {
   constructor() {
     // Values

@@ -1,3 +1,5 @@
+//@flow
+
 /**
  * ES6 upgrade of original source:
  *
@@ -9,6 +11,9 @@
  *   Please retain this copyright header in all versions of the software
  */
 class Vector2D {
+  vx = 0;
+  vy = 0;
+
   constructor(x, y) {
     this.vx = x;
     this.vy = y;

@@ -1,3 +1,5 @@
+//@flow
+
 /**
  * Collision detection + Bounce effect
  *

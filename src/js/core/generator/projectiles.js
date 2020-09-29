@@ -1,3 +1,4 @@
+//@flow
 class Projectiles {
   constructor(params) {
     // Instance
@@ -32,7 +33,7 @@ class Projectiles {
       x: o1.x,
       y: o1.y,
       angle: o1.angle,
-      color: "rgba(64, 224, 255, 1)",
+      color: 'rgba(64, 224, 255, 1)',
       size: 2,
     });
 
@@ -51,7 +52,7 @@ class Projectiles {
       owner: o1,
       vector1: v1,
       vector2: v2,
-      color: "rgba(0, 192, 255, 1)",
+      color: 'rgba(0, 192, 255, 1)',
     });
 
     this.stage.add(p);
@@ -75,7 +76,7 @@ class Projectiles {
       x: o2.x,
       y: o2.y,
       angle: o2.angle,
-      color: "rgba(255, 128, 96, 1)",
+      color: 'rgba(255, 128, 96, 1)',
       size: 2,
     });
 
@@ -85,7 +86,7 @@ class Projectiles {
   // On collisions
   bindEvents() {
     window.addEventListener(
-      "collision:hit",
+      'collision:hit',
       (event) => {
         const objects = event.detail.data;
 
@@ -100,7 +101,7 @@ class Projectiles {
           }
         }
       },
-      true
+      true,
     );
   }
 }

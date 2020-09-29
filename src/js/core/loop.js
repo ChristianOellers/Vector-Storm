@@ -1,3 +1,4 @@
+//@flow
 class Loop {
   constructor(params) {
     // Instance

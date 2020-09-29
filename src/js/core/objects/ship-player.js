@@ -1,3 +1,4 @@
+//@flow
 class ShipPlayer {
   constructor(params) {
     // Instance
@@ -31,7 +32,7 @@ class ShipPlayer {
     this.isTransitioning = false;
     this.transitionTime = 1000;
     this.timeInState = 0;
-    this.state = "idle"; // 'hit'
+    this.state = 'idle'; // 'hit'
 
     this.bindEvents();
   }
@@ -46,24 +47,24 @@ class ShipPlayer {
 
     ctx.translate(this.x, this.y);
 
-    ctx.strokeStyle = "rgba(255, 255, 255, 1)";
-    ctx.fillStyle = "rgba(255, 255, 255, 0.25)";
+    ctx.strokeStyle = 'rgba(255, 255, 255, 1)';
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.25)';
     ctx.lineWidth = 1;
 
-    ctx.font = "8px Arial";
+    ctx.font = '8px Arial';
     ctx.fillText(score, sizeShip * 1.2, sizeShip * 1.2);
 
     ctx.rotate(this.angle);
 
     // Center
-    ctx.fillStyle = "rgba(255, 255, 255, 1)";
+    ctx.fillStyle = 'rgba(255, 255, 255, 1)';
     ctx.fillRect(0 - sizePoint / 2, 0 - sizePoint / 2, sizePoint, sizePoint);
 
     this.drawState();
 
     // Direction
     ctx.beginPath();
-    ctx.strokeStyle = "rgba(255, 255, 255, 0.5)";
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
     ctx.moveTo(0, 0);
     ctx.lineTo(sizeShip * 2, 0);
     ctx.closePath();
@@ -89,7 +90,7 @@ class ShipPlayer {
     if (this.timeInState > 0) {
       const percent = this.timeInState / this.transitionTime;
 
-      if (this.state === "hit") {
+      if (this.state === 'hit') {
         sizeShape = sizeShip / 1.5 + sizeShip * percent;
         sizeRange = sizeRange / 1.5 + sizeRange * percent;
         alphaRange += 1 * percent;
@@ -154,7 +155,7 @@ class ShipPlayer {
     if (this.isMovingFast) {
       return;
     }
-    console.log("MOVEFAST");
+    console.log('MOVEFAST');
 
     this.velocityVector.scale(2);
     this.isMovingFast = true;
@@ -175,11 +176,11 @@ class ShipPlayer {
       this.score -= 10;
 
       // State
-      this.state = "hit";
+      this.state = 'hit';
       this.timeInState = this.transitionTime;
 
       setTimeout(() => {
-        this.state = "idle";
+        this.state = 'idle';
         this.isTransitioning = false;
         this.timeInState = 0;
       }, this.transitionTime);
@@ -190,12 +191,12 @@ class ShipPlayer {
 
   // Bind game events to internal callback functions
   triggerFx() {
-    const el = document.getElementById("fx");
+    const el = document.getElementById('fx');
 
-    el.classList.add("shake");
+    el.classList.add('shake');
 
     window.setTimeout(() => {
-      el.classList.remove("shake");
+      el.classList.remove('shake');
     }, 100);
   }
 
@@ -206,31 +207,31 @@ class ShipPlayer {
     const { container } = this;
 
     container.addEventListener(
-      "mousedown",
+      'mousedown',
       (event) => {
         this.onFlyStart();
       },
-      true
+      true,
     );
 
     container.addEventListener(
-      "mouseup",
+      'mouseup',
       (event) => {
         this.onFlyStop();
       },
-      true
+      true,
     );
 
     container.addEventListener(
-      "mousemove",
+      'mousemove',
       (event) => {
         this.onMove(event);
       },
-      true
+      true,
     );
 
     window.addEventListener(
-      "controls:keydown",
+      'controls:keydown',
       (event) => {
         const ev = event.detail.data;
 
@@ -238,7 +239,7 @@ class ShipPlayer {
           this.setFastMove();
         }
       },
-      true
+      true,
     );
   }
 

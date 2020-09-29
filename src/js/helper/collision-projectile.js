@@ -1,3 +1,5 @@
+//@flow
+
 class CollisionProjectile {
   constructor(params) {
     // Instance

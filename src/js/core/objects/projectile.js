@@ -1,3 +1,4 @@
+//@flow
 class Projectile {
   constructor(params) {
     // Instance
@@ -39,7 +40,7 @@ class Projectile {
     ctx.arc((-size * sizeScale) / 2, (-size * sizeScale) / 2, size * sizeScale, 0, 2 * Math.PI);
     ctx.fill();
 
-    ctx.fillStyle = "rgba(255, 255, 0, 0.5)";
+    ctx.fillStyle = 'rgba(255, 255, 0, 0.5)';
     ctx.fillRect(-2, -2, 2, 2);
 
     ctx.restore();

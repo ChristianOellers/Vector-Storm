@@ -1,3 +1,4 @@
+//@flow
 class Controls {
   private container;
 
