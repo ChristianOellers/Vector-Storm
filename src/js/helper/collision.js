@@ -10,25 +10,25 @@ class Collision {
 
   // Ships only (radiusRange)
   testObjects(objects) {
-    let vector = new Vector2D(0, 0);
-    let count = objects.length;
+    const vector = new Vector2D(0, 0);
+    const count = objects.length;
     let distance = 0;
 
     // Check objects against each other.
     // Inner loop starts one past outer loop for efficient testing:
     // Prevent self and duplicate checks - A against B but not B against A
     for (let c = 0; c < count; c++) {
-      let o1 = objects[c];
+      const o1 = objects[c];
 
       for (let i = c + 1; i < count; i++) {
-        let o2 = objects[i];
+        const o2 = objects[i];
 
         vector.vx = o2.x - o1.x;
         vector.vy = o2.y - o1.y;
         distance = vector.size();
 
         // Distance < sum of 2 radii = Collision
-        //if (distance < (o1.radius + o2.radius)) {
+        // if (distance < (o1.radius + o2.radius)) {
         if (distance < o1.radiusRange + o2.radiusRange) {
           this.notify(o1, o2);
         }
@@ -69,17 +69,14 @@ class Collision {
   // Used to distinct player from other objects
   // Other objects only interact with the player, but not with themselves
   hitToPlayer(o1, o2) {
-    const playerType = this.playerType;
+    const { playerType } = this;
 
-    return (
-      o1.__proto__.constructor.name === playerType ||
-      o2.__proto__.constructor.name === playerType
-    );
+    return o1.__proto__.constructor.name === playerType || o2.__proto__.constructor.name === playerType;
   }
 
   // Connect circles that can hit each other
   draw(o1, o2) {
-    const ctx = this.view.ctx;
+    const { ctx } = this.view;
     const v1 = new Vector2D(o1.x, o1.y);
     const v2 = new Vector2D(o2.x, o2.y);
 
@@ -97,12 +94,12 @@ class Collision {
   }
 
   drawPoint(x, y) {
-    const ctx = this.view.ctx;
+    const { ctx } = this.view;
     const size = 4;
 
     ctx.save();
 
-    //ctx.fillStyle = 'rgba(0, 0, 0, 1)';
+    // ctx.fillStyle = 'rgba(0, 0, 0, 1)';
     ctx.fillStyle = "rgba(255, 255, 255, 1)";
     ctx.fillRect(x - size / 2, y - size / 2, size, size);
 
@@ -112,8 +109,8 @@ class Collision {
   dispatchHitEvent(o1, o2) {
     const ev = new CustomEvent("collision:hit", {
       detail: {
-        data: [o1, o2]
-      }
+        data: [o1, o2],
+      },
     });
 
     this.updateScore(o1, o2);

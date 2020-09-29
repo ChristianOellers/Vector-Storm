@@ -18,7 +18,7 @@ class Phaser {
       return;
     }
 
-    const ctx = this.view.ctx;
+    const { ctx } = this.view;
     const v1 = this.vector1;
     const v2 = this.vector2;
 

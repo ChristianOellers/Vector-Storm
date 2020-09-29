@@ -22,19 +22,16 @@
   "files.associations": {
     ".*intrc": "json",
   },
+  "css.validate": false,
   "json.format.enable": true,
   "less.validate": false,
   "scss.validate": false,
-  "css.validate": false,
   "javascript.validate.enable": false,
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": true,
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": true,
   "stylelint.enable": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "prettier.bracketSpacing": true,
-  "prettier.printWidth": 140,
-  "prettier.singleQuote": true,
   "flow.pathToFlow": "${workspaceRoot}/node_modules/.bin/flow",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[css]": {
     "editor.codeActionsOnSave": {
       "source.fixAll.stylelint": true

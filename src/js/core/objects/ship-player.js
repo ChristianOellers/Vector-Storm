@@ -37,9 +37,9 @@ class ShipPlayer {
   }
 
   draw() {
-    const ctx = this.view.ctx;
-    const sizePoint = this.sizePoint;
-    const sizeShip = this.sizeShip;
+    const { ctx } = this.view;
+    const { sizePoint } = this;
+    const { sizeShip } = this;
     const score = Number.parseFloat(this.score).toFixed(1);
 
     ctx.save();
@@ -73,9 +73,9 @@ class ShipPlayer {
   }
 
   drawState() {
-    const ctx = this.view.ctx;
-    const sizePoint = this.sizePoint;
-    const sizeShip = this.sizeShip;
+    const { ctx } = this.view;
+    const { sizePoint } = this;
+    const { sizeShip } = this;
 
     let sizeShape = sizeShip;
     let sizeRange = this.radius * 10;
@@ -87,13 +87,13 @@ class ShipPlayer {
     this.timeInState *= 0.9;
 
     if (this.timeInState > 0) {
-      let percent = this.timeInState / this.transitionTime;
+      const percent = this.timeInState / this.transitionTime;
 
       if (this.state === "hit") {
         sizeShape = sizeShip / 1.5 + sizeShip * percent;
         sizeRange = sizeRange / 1.5 + sizeRange * percent;
-        alphaRange = alphaRange + 1 * percent;
-        alphaCenter = alphaCenter + 1 * percent;
+        alphaRange += 1 * percent;
+        alphaCenter += 1 * percent;
         colorRed = 255 - 128 * percent;
       }
     }
@@ -105,12 +105,12 @@ class ShipPlayer {
     ctx.stroke();
 
     // Shape - Center
-    ctx.fillStyle = "rgba(" + colorRed + ", 255, 255, " + alphaCenter + ")";
+    ctx.fillStyle = `rgba(${colorRed}, 255, 255, ${alphaCenter})`;
     ctx.fill();
 
     // Range
     ctx.beginPath();
-    ctx.strokeStyle = "rgba(" + colorRed + ", 255, 255, " + alphaRange + ")";
+    ctx.strokeStyle = `rgba(${colorRed}, 255, 255, ${alphaRange})`;
     ctx.arc(0, 0, sizeRange, 0, Math.PI * 2);
     ctx.closePath();
     ctx.stroke();
@@ -119,8 +119,7 @@ class ShipPlayer {
   move() {
     this.moveControl();
 
-    let angleRad =
-      this.angle + (Math.PI / 180) * this.rotationSpeed * this.direction;
+    let angleRad = this.angle + (Math.PI / 180) * this.rotationSpeed * this.direction;
     let angleDeg = (angleRad * 180) / Math.PI;
 
     // Angle MUST be reset or all other calculations will break
@@ -134,7 +133,7 @@ class ShipPlayer {
   }
 
   moveControl() {
-    const speedMax = this.speedMax;
+    const { speedMax } = this;
     const speed = 0;
 
     this.x += this.velocityVector.vx;
@@ -204,11 +203,11 @@ class ShipPlayer {
 
   // Bind game events to internal callback functions
   bindEvents() {
-    const container = this.container;
+    const { container } = this;
 
     container.addEventListener(
       "mousedown",
-      event => {
+      (event) => {
         this.onFlyStart();
       },
       true
@@ -216,7 +215,7 @@ class ShipPlayer {
 
     container.addEventListener(
       "mouseup",
-      event => {
+      (event) => {
         this.onFlyStop();
       },
       true
@@ -224,7 +223,7 @@ class ShipPlayer {
 
     container.addEventListener(
       "mousemove",
-      event => {
+      (event) => {
         this.onMove(event);
       },
       true
@@ -232,7 +231,7 @@ class ShipPlayer {
 
     window.addEventListener(
       "controls:keydown",
-      event => {
+      (event) => {
         const ev = event.detail.data;
 
         if (ev.shiftKey) {
@@ -253,7 +252,7 @@ class ShipPlayer {
 
   // Create new thrust vector
   onFlyStart(_event) {
-    let thrust = this.thrust;
+    let { thrust } = this;
 
     thrust = new Vector2D(this.mouseX - this.x, this.mouseY - this.y);
 

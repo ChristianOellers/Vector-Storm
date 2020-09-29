@@ -12,8 +12,8 @@ class Score {
 
   // On: Loop
   checkConditions() {
-    const player = this.player;
-    const score = player.score;
+    const { player } = this;
+    const { score } = player;
 
     if (score >= this.scoreWin) {
       this.onEvent("score:game-end");
@@ -25,12 +25,12 @@ class Score {
   }
 
   draw(state) {
-    const view = this.view;
+    const { view } = this;
     const score = this.player.score | 0;
-    const ctx = view.ctx;
+    const { ctx } = view;
     const x = view.centerX;
     const y = view.centerY;
-    const text = ("You " + state).toUpperCase();
+    const text = `You ${state}`.toUpperCase();
 
     ctx.save();
 
@@ -48,7 +48,7 @@ class Score {
 
     ctx.fillText(text, x, y - 5);
     ctx.font = "10px Arial";
-    ctx.fillText("Score: " + score, x, y + 25);
+    ctx.fillText(`Score: ${score}`, x, y + 25);
 
     // Shape
     ctx.beginPath();
@@ -60,12 +60,12 @@ class Score {
   }
 
   onEvent(eventName) {
-    const container = this.container;
+    const { container } = this;
 
     const ev = new CustomEvent(eventName, {
       detail: {
-        data: event
-      }
+        data: event,
+      },
     });
 
     container.dispatchEvent(ev);

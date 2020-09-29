@@ -24,18 +24,18 @@ class Ship {
   }
 
   draw() {
-    const ctx = this.view.ctx;
-    const sizePoint = this.sizePoint;
-    const sizeShip = this.sizeShip;
-    const color = this.color;
+    const { ctx } = this.view;
+    const { sizePoint } = this;
+    const { sizeShip } = this;
+    const { color } = this;
     const score = Number.parseFloat(this.score).toFixed(1);
 
     ctx.save();
 
     ctx.translate(this.x, this.y);
 
-    ctx.strokeStyle = "rgba(" + color + ", 1)";
-    ctx.fillStyle = "rgba(" + color + ", 0.25)";
+    ctx.strokeStyle = `rgba(${color}, 1)`;
+    ctx.fillStyle = `rgba(${color}, 0.25)`;
     ctx.lineWidth = 1;
 
     ctx.font = "8px Arial";
@@ -45,7 +45,7 @@ class Ship {
     ctx.rotate(this.angle);
 
     // Center
-    ctx.fillStyle = "rgba(" + color + ", 1)";
+    ctx.fillStyle = `rgba(${color}, 1)`;
     ctx.fillRect(0 - sizePoint / 2, 0 - sizePoint / 2, sizePoint, sizePoint);
 
     // Shape
@@ -56,7 +56,7 @@ class Ship {
 
     // Direction
     ctx.beginPath();
-    ctx.strokeStyle = "rgba(" + color + ", 0.5)";
+    ctx.strokeStyle = `rgba(${color}, 0.5)`;
     ctx.moveTo(0, 0);
     ctx.lineTo(sizeShip * 2, 0);
     ctx.closePath();
@@ -64,7 +64,7 @@ class Ship {
 
     // Range
     ctx.beginPath();
-    ctx.strokeStyle = "rgba(" + color + ", 0.1)";
+    ctx.strokeStyle = `rgba(${color}, 0.1)`;
     ctx.arc(0, 0, this.radius * 10, 0, Math.PI * 2);
     ctx.closePath();
     ctx.stroke();
@@ -75,8 +75,7 @@ class Ship {
   move() {
     this.moveControl();
 
-    let angleRad =
-      this.angle + (Math.PI / 180) * this.rotationSpeed * this.direction;
+    let angleRad = this.angle + (Math.PI / 180) * this.rotationSpeed * this.direction;
     let angleDeg = (angleRad * 180) / Math.PI;
 
     // Angle MUST be reset or all other calculations will break
@@ -92,7 +91,7 @@ class Ship {
   // Reposition
   // Y = Keep a bit buffer
   moveControl() {
-    const view = this.view;
+    const { view } = this;
     const size = this.sizeShip;
     const bufferY = 3;
 

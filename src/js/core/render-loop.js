@@ -18,7 +18,7 @@ class RenderLoop {
   }
 
   run() {
-    const objects = this.stage.objects;
+    const { objects } = this.stage;
 
     this.reset();
 
@@ -32,11 +32,11 @@ class RenderLoop {
 
   // Todo: Outsource collision detection (inject, pass objects, let them filter)
   testObjects() {
-    const objects = this.stage.objects;
+    const { objects } = this.stage;
 
-    let testCollisionShip = [];
-    let testCollisionShipBounce = [];
-    let testCollisionProjectile = [];
+    const testCollisionShip = [];
+    const testCollisionShipBounce = [];
+    const testCollisionProjectile = [];
 
     // Filter to test collideable objects only
     for (let i = 0; i < objects.length; i++) {
@@ -57,14 +57,14 @@ class RenderLoop {
   }
 
   reset() {
-    const view = this.view;
-    const ctx = view.ctx;
+    const { view } = this;
+    const { ctx } = view;
 
     if (this.clear) {
       ctx.clearRect(0, 0, view.width, view.height);
     } else {
       ctx.save();
-      ctx.fillStyle = "rgba(0, 0, 0, " + this.smear + ")";
+      ctx.fillStyle = `rgba(0, 0, 0, ${this.smear})`;
       ctx.fillRect(0, 0, view.width, view.height);
       ctx.restore();
     }
@@ -89,7 +89,7 @@ class RenderLoop {
   bindEvents() {
     window.addEventListener(
       "controls:keydown",
-      event => {
+      (event) => {
         const ev = event.detail.data;
 
         // Manually run

@@ -28,12 +28,12 @@ class Projectiles {
     const p = new this.projectile1({
       view: this.view,
       owner: o1,
-      vector: vector,
+      vector,
       x: o1.x,
       y: o1.y,
       angle: o1.angle,
       color: "rgba(64, 224, 255, 1)",
-      size: 2
+      size: 2,
     });
 
     this.stage.add(p);
@@ -51,7 +51,7 @@ class Projectiles {
       owner: o1,
       vector1: v1,
       vector2: v2,
-      color: "rgba(0, 192, 255, 1)"
+      color: "rgba(0, 192, 255, 1)",
     });
 
     this.stage.add(p);
@@ -66,17 +66,17 @@ class Projectiles {
     vector.normalize();
 
     // Slightly inaccurate
-    //vector.rotate(Math.random() * 0.1);
+    // vector.rotate(Math.random() * 0.1);
 
     const p = new this.projectile1({
       view: this.view,
       owner: o2,
-      vector: vector,
+      vector,
       x: o2.x,
       y: o2.y,
       angle: o2.angle,
       color: "rgba(255, 128, 96, 1)",
-      size: 2
+      size: 2,
     });
 
     this.stage.add(p);
@@ -86,7 +86,7 @@ class Projectiles {
   bindEvents() {
     window.addEventListener(
       "collision:hit",
-      event => {
+      (event) => {
         const objects = event.detail.data;
 
         this.createProjectileEnemy(...objects);

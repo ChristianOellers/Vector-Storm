@@ -23,12 +23,12 @@ class CollisionProjectile {
   }
 
   testHit(projectile) {
-    const player = this.player;
+    const { player } = this;
     const size = player.sizeShip;
     const halfSize = player.sizeShip / 2;
 
-    const x = projectile.x;
-    const y = projectile.y;
+    const { x } = projectile;
+    const { y } = projectile;
     const pX = player.x;
     const pY = player.y;
 

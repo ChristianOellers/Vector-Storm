@@ -10,11 +10,11 @@ class Controls {
   }
 
   bindEvents() {
-    const container = this.container;
+    const { container } = this;
 
     container.addEventListener(
       "mousedown",
-      event => {
+      (event) => {
         this.onEvent("controls:mousedown");
       },
       true
@@ -22,7 +22,7 @@ class Controls {
 
     window.addEventListener(
       "keydown",
-      event => {
+      (event) => {
         this.onEvent("controls:keydown");
       },
       true
@@ -30,12 +30,12 @@ class Controls {
   }
 
   onEvent(eventName) {
-    const container = this.container;
+    const { container } = this;
 
     const ev = new CustomEvent(eventName, {
       detail: {
-        data: event
-      }
+        data: event,
+      },
     });
 
     container.dispatchEvent(ev);

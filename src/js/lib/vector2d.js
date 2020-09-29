@@ -45,7 +45,7 @@ class Vector2D {
   // Normalize unit length
   // Return length before normalisation
   normalize() {
-    var size = Math.sqrt(this.vx * this.vx + this.vy * this.vy);
+    const size = Math.sqrt(this.vx * this.vx + this.vy * this.vy);
 
     if (size) {
       this.vx /= size;
@@ -74,6 +74,6 @@ class Vector2D {
 
   // Debug
   toString() {
-    return 'vx = ' + this.vx + ', vy = ' + this.vy;
+    return `vx = ${this.vx}, vy = ${this.vy}`;
   }
 }
