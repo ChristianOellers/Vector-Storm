@@ -19,6 +19,9 @@
   "editor.useTabStops": false,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
+  "files.associations": {
+    ".*intrc": "json",
+  },
   "json.format.enable": true,
   "less.validate": false,
   "scss.validate": false,
@@ -45,5 +48,6 @@
   },
   "[markdown]": {
     "editor.acceptSuggestionOnEnter": "off"
-  }
+  },
+  "postcss.validate": false
 }
