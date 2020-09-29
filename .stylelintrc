@@ -1,0 +1,61 @@
+{
+  "extends": "stylelint-config-standard",
+  "plugins": [],
+  "ignoreFiles": [],
+  "rules": {
+    "at-rule-empty-line-before": [
+      "always",
+      {
+        "ignore": [
+          "after-comment",
+          "first-nested"
+        ],
+        "ignoreAtRules": [
+          "else",
+          "for",
+          "if",
+          "import"
+        ]
+      }
+    ],
+    "at-rule-no-unknown": null,
+    "color-hex-case": "lower",
+    "color-named": "never",
+    "declaration-no-important": true,
+    "font-family-name-quotes": "always-where-recommended",
+    "function-name-case": [
+      "lower",
+      {
+        "ignoreFunctions": []
+      }
+    ],
+    "function-url-quotes": "always",
+    "max-empty-lines": 2,
+    "max-nesting-depth": 10,
+    "media-feature-name-no-unknown": [
+      true,
+      {
+        "ignoreMediaFeatureNames": [
+          "min-device-pixel-ratio"
+        ]
+      }
+    ],
+    "selector-pseudo-element-colon-notation": "double",
+    "selector-pseudo-element-no-unknown": [
+      true,
+      {
+        "ignorePseudoElements": []
+      }
+    ],
+    "selector-type-no-unknown": null,
+    "string-quotes": "double",
+    "value-keyword-case": [
+      "lower",
+      {
+        "ignoreProperties": [
+          "/font-?family/i"
+        ]
+      }
+    ]
+  }
+}

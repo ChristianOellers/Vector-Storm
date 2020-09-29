@@ -1,0 +1,8 @@
+# npx browserslist
+# https://github.com/browserslist/browserslist#queries
+
+> 0.5%
+last 2 versions
+not dead
+not IE 9-11
+not op_mini all

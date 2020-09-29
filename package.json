@@ -1,0 +1,30 @@
+{
+  "name": "vector-storm",
+  "description": "Vector Storm – Abstract 2D space shooter",
+  "license": "MIT",
+  "author": "Christian Oellers",
+  "version": "0.0.1",
+  "main": "src/index.html",
+  "private": true,
+  "scripts": {
+    "project:clean": "rm -rf node_modules",
+    "project:install": "npm run project:clean && npm install",
+    "project:update": "npm run project:clean && npm update"
+  },
+  "dependencies": {
+    "flow-typed": "^3.2.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-plugin-flowtype": "^4.7.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "flow-bin": "^0.119.1",
+    "stylelint": "^13.6.1",
+    "stylelint-config-standard": "^20.0.0"
+  },
+  "eslintConfig": {
+    "extends": "airbnb"
+  }
+}

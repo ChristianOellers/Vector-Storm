@@ -1,0 +1,45 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "extends": [
+    "airbnb"
+  ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "plugins": [
+    "import"
+  ],
+  "rules": {
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never"
+      }
+    ],
+    "import/no-unresolved": "error",
+    "max-len": "off",
+    "no-console": "off",
+    "no-unused-vars": "off",
+    "space-in-parens": "off"
+  },
+  "settings": {
+    "import/extensions": [
+      ".js"
+    ],
+    "import/parsers": {},
+    "import/resolver": {
+      "node": {
+        "extensions": [],
+        "moduleDirectory": [
+          "node_modules",
+          "src"
+        ]
+      }
+    }
+  }
+}
