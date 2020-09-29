@@ -4,7 +4,7 @@ class Collision {
     this.view = params.view; // Class: View
 
     // Values
-    this.playerType = "ShipPlayer";
+    this.playerType = 'ShipPlayer';
     this.score = 1;
   }
 
@@ -83,7 +83,7 @@ class Collision {
     ctx.save();
 
     ctx.beginPath();
-    ctx.strokeStyle = "rgba(255, 128, 0, 1)";
+    ctx.strokeStyle = 'rgba(255, 128, 0, 1)';
     ctx.lineWidth = 1;
     ctx.moveTo(v1.vx, v1.vy);
     ctx.lineTo(v2.vx, v2.vy);
@@ -100,14 +100,14 @@ class Collision {
     ctx.save();
 
     // ctx.fillStyle = 'rgba(0, 0, 0, 1)';
-    ctx.fillStyle = "rgba(255, 255, 255, 1)";
+    ctx.fillStyle = 'rgba(255, 255, 255, 1)';
     ctx.fillRect(x - size / 2, y - size / 2, size, size);
 
     ctx.restore();
   }
 
   dispatchHitEvent(o1, o2) {
-    const ev = new CustomEvent("collision:hit", {
+    const ev = new CustomEvent('collision:hit', {
       detail: {
         data: [o1, o2],
       },

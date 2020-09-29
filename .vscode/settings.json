@@ -12,8 +12,8 @@
   "editor.cursorStyle": "line",
   "editor.cursorSmoothCaretAnimation": true,
   "editor.detectIndentation": true,
-  "editor.formatOnPaste": true,
-  "editor.formatOnSave": true,
+  "editor.formatOnPaste": false,
+  "editor.formatOnSave": false,
   "editor.formatOnType": false,
   "editor.insertSpaces": false,
   "editor.useTabStops": false,
@@ -31,20 +31,32 @@
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": true,
   "stylelint.enable": true,
   "flow.pathToFlow": "${workspaceRoot}/node_modules/.bin/flow",
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "htmlhint.documentSelector": [
+    "html",
+  ],
   "[css]": {
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
       "source.fixAll.stylelint": true
     }
   },
-  "[javascript]": {
+  "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true
+  },
+  "[javascript]": {
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": true
     }
   },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true
+  },
   "[markdown]": {
     "editor.acceptSuggestionOnEnter": "off"
-  },
-  "postcss.validate": false
+  }
 }

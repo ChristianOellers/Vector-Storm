@@ -1,3 +1,4 @@
+// @flow
 window.onload = () => {
   // -------------------------------------------------------------------------------------------------------------------------------- Config
 
@@ -15,8 +16,13 @@ window.onload = () => {
 
   const collisionBounce = new CollisionBounce();
   const stage = new Stage();
-  const view = new View({ domElementId: "app" });
-  const controls = new Controls({ view });
+
+  const view = new View({
+    domElementId: 'app',
+  });
+  const controls = new Controls({
+    view,
+  });
 
   const collision = new Collision({
     view,

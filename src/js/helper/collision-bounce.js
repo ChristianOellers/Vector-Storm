@@ -86,12 +86,12 @@ class CollisionBounce {
 
   // Bind game events to internal callback functions
   triggerFx() {
-    const el = document.getElementById("fx");
+    const el = document.getElementById('fx');
 
-    el.classList.add("shake");
+    el.classList.add('shake');
 
     window.setTimeout(() => {
-      el.classList.remove("shake");
+      el.classList.remove('shake');
     }, 1000);
   }
 }

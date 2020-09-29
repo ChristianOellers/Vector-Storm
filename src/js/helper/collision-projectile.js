@@ -4,8 +4,8 @@ class CollisionProjectile {
     this.view = params.view; // Class: View
     this.player = params.player; // Class: *
 
-    this.testType = "Projectile";
-    this.testOwner = "Ship";
+    this.testType = 'Projectile';
+    this.testOwner = 'Ship';
   }
 
   // Ships only (radiusRange)

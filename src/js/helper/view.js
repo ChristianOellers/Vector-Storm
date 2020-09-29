@@ -4,7 +4,7 @@ class View {
     this.canvas = document.getElementById(params.domElementId);
 
     // Values
-    this.ctx = this.canvas.getContext("2d");
+    this.ctx = this.canvas.getContext('2d');
     this.width = this.canvas.width;
     this.height = this.canvas.height;
     this.centerX = this.width / 2;

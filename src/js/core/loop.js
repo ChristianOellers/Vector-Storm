@@ -52,17 +52,17 @@ class Loop {
 
   bindEvents() {
     window.addEventListener(
-      "score:game-end",
+      'score:game-end',
       (event) => {
         const objects = event.detail.data;
 
         this.stop();
       },
-      true
+      true,
     );
 
     window.addEventListener(
-      "controls:keydown",
+      'controls:keydown',
       (event) => {
         const ev = event.detail.data;
 
@@ -71,7 +71,7 @@ class Loop {
           this.loopInterval();
         }
       },
-      true
+      true,
     );
   }
 }

@@ -5,7 +5,7 @@ class Ship {
     this.x = params.x;
     this.y = params.y;
     this.id = params.id; // Internal
-    this.color = params.color || "255, 192, 96";
+    this.color = params.color || '255, 192, 96';
 
     // Values
     this.direction = (-1 + Math.random() * 2) | 0;
@@ -38,7 +38,7 @@ class Ship {
     ctx.fillStyle = `rgba(${color}, 0.25)`;
     ctx.lineWidth = 1;
 
-    ctx.font = "8px Arial";
+    ctx.font = '8px Arial';
     ctx.fillText(this.id, sizeShip * 1.1, sizeShip * 1.2);
     ctx.fillText(score, sizeShip * 1.1, sizeShip * 1.7);
 

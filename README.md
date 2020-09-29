@@ -103,4 +103,3 @@ New features
 - Player should bounce off the boundaries (or slow down) and not be able to leave the field
 - Reacting to score, player could get different weapons or conditional states over time
 - Implement 'scene' concept to manage all objects (e.g. pause, show, hide) and switch between multiple scenes
-

@@ -8,7 +8,7 @@ class RenderLoop {
     this.view = params.view;
 
     // Values
-    this.collisionTypes = ["Ship", "ShipPlayer"];
+    this.collisionTypes = ['Ship', 'ShipPlayer'];
     this.isAnimating = false;
     this.clear = false; // If not, draw over
     this.smear = 0.5; // Blur FX; lower values = More blur
@@ -88,7 +88,7 @@ class RenderLoop {
 
   bindEvents() {
     window.addEventListener(
-      "controls:keydown",
+      'controls:keydown',
       (event) => {
         const ev = event.detail.data;
 
@@ -97,7 +97,7 @@ class RenderLoop {
           this.setFx();
         }
       },
-      true
+      true,
     );
   }
 }

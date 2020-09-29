@@ -16,11 +16,11 @@ class Score {
     const { score } = player;
 
     if (score >= this.scoreWin) {
-      this.onEvent("score:game-end");
-      this.draw("win");
+      this.onEvent('score:game-end');
+      this.draw('win');
     } else if (score <= this.scoreLose) {
-      this.onEvent("score:game-end");
-      this.draw("lose");
+      this.onEvent('score:game-end');
+      this.draw('lose');
     }
   }
 
@@ -35,19 +35,19 @@ class Score {
     ctx.save();
 
     // Background
-    ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
     ctx.fillRect(0, 0, view.width, view.height);
 
-    ctx.strokeStyle = "rgba(255, 255, 255, 1)";
-    ctx.fillStyle = "rgba(255, 255, 255, 1)";
+    ctx.strokeStyle = 'rgba(255, 255, 255, 1)';
+    ctx.fillStyle = 'rgba(255, 255, 255, 1)';
 
     // Text
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    ctx.font = "32px Arial";
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.font = '32px Arial';
 
     ctx.fillText(text, x, y - 5);
-    ctx.font = "10px Arial";
+    ctx.font = '10px Arial';
     ctx.fillText(`Score: ${score}`, x, y + 25);
 
     // Shape

@@ -1,4 +1,6 @@
 class Controls {
+  private container;
+
   constructor(params) {
     // Instance
     this.view = params.view;
@@ -13,7 +15,7 @@ class Controls {
     const { container } = this;
 
     container.addEventListener(
-      "mousedown",
+      'mousedown',
       (event) => {
         this.onEvent("controls:mousedown");
       },
