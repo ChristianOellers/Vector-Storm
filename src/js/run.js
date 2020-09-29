@@ -20,6 +20,7 @@ window.onload = () => {
   const view = new View({
     domElementId: 'app',
   });
+
   const controls = new Controls({
     view,
   });

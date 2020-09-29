@@ -12,15 +12,15 @@
   "editor.cursorStyle": "line",
   "editor.cursorSmoothCaretAnimation": true,
   "editor.detectIndentation": true,
-  "editor.formatOnPaste": false,
-  "editor.formatOnSave": false,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
   "editor.formatOnType": false,
   "editor.insertSpaces": false,
   "editor.useTabStops": false,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
   "files.associations": {
-    ".*intrc": "json",
+    ".*intrc": "json"
   },
   "css.validate": false,
   "json.format.enable": true,
@@ -32,29 +32,25 @@
   "stylelint.enable": true,
   "flow.pathToFlow": "${workspaceRoot}/node_modules/.bin/flow",
   "htmlhint.documentSelector": [
-    "html",
+    "html"
   ],
   "[css]": {
-    "editor.formatOnPaste": true,
-    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.codeActionsOnSave": {
       "source.fixAll.stylelint": true
     }
   },
   "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnPaste": true,
-    "editor.formatOnSave": true
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": true
     }
   },
   "[json]": {
-    "editor.defaultFormatter": "vscode.json-language-features",
-    "editor.formatOnPaste": true,
-    "editor.formatOnSave": true
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[markdown]": {
     "editor.acceptSuggestionOnEnter": "off"
