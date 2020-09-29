@@ -1,4 +1,4 @@
-//@flow
+// @flow
 class Projectiles {
   constructor(params) {
     // Instance

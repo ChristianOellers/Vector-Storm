@@ -1,4 +1,4 @@
-//@flow
+// @flow
 class Score {
   constructor(params) {
     // Instance

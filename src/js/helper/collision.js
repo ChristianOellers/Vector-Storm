@@ -1,4 +1,4 @@
-//@flow
+// @flow
 
 class Collision {
   constructor(params) {

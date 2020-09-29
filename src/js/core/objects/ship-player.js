@@ -1,4 +1,4 @@
-//@flow
+// @flow
 class ShipPlayer {
   constructor(params) {
     // Instance

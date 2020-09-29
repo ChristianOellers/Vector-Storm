@@ -1,4 +1,4 @@
-//@flow
+// @flow
 class RenderLoop {
   constructor(params) {
     // Instance

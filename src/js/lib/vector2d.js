@@ -1,4 +1,4 @@
-//@flow
+// @flow
 
 /**
  * ES6 upgrade of original source:

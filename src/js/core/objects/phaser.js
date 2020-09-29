@@ -1,4 +1,4 @@
-//@flow
+// @flow
 class Phaser {
   constructor(params) {
     // Instance
