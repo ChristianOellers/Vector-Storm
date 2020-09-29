@@ -1,6 +1,7 @@
 {
   "extends": "stylelint-config-standard",
   "rules": {
+    "at-rule-no-unknown": null,
     "at-rule-empty-line-before": [
       "always",
       {
@@ -16,7 +17,6 @@
         ]
       }
     ],
-    "at-rule-no-unknown": null,
     "color-hex-case": "lower",
     "color-named": "never",
     "declaration-no-important": true,
@@ -41,7 +41,6 @@
       true,
       {}
     ],
-    "selector-type-no-unknown": null,
     "property-no-unknown": [
       true,
       {
@@ -50,6 +49,7 @@
         ]
       }
     ],
+    "selector-type-no-unknown": null,
     "string-quotes": "double",
     "value-keyword-case": [
       "lower",

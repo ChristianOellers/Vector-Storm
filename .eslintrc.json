@@ -1,18 +1,20 @@
 {
+  "extends": [
+    "airbnb",
+    "prettier"
+  ],
+  "plugins": [
+    "import",
+    "prettier"
+  ],
   "env": {
     "browser": true,
     "es6": true
   },
-  "extends": [
-    "airbnb"
-  ],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
   },
-  "plugins": [
-    "import"
-  ],
   "rules": {
     "import/extensions": [
       "error",
@@ -25,7 +27,10 @@
     "max-len": "off",
     "no-console": "off",
     "no-unused-vars": "off",
-    "space-in-parens": "off"
+    "space-in-parens": "off",
+    "prettier/prettier": [
+      "error"
+    ]
   },
   "settings": {
     "import/extensions": [
