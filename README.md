@@ -25,7 +25,7 @@
 
 Classic arcade style space shooter with Canvas 2D, ES6 and HTML 5.
 
-A 'Proof of concept' and technical experiment about game architecture and math.
+A 'Proof of concept' and technical experiment about game architecture and maths.
 Over time the code got a bit messy and it's not intended to sustain ;)
 
 
@@ -86,14 +86,14 @@ Focusing on just the 'good' parts of the engine, here are a few technical concep
 ## Todo
 
 Fix
-- Collision: Vector math sometimes creates extreme values
+- Collision: Vector maths sometimes creates extreme values
 
-Optimise
+Optimize
 - Debounce hit testing to prevent fast accumulating scores
 - Remove 'dead objects from scene (projectiles) OR implement an 'object pool'
 - OOP
   - Decouple state, view, controls, score ...
-  - Decouple constructors from initialisation?
+  - Decouple constructors from initialization?
 
 Performance
 - HUD + Score should be rendered in HTML, not Canvas
