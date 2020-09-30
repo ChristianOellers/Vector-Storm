@@ -7,7 +7,6 @@
 - [Features](#features)
 - [Limitations](#limitations)
 - [How to use](#how-to-use)
-- [Concepts](#concepts)
 - [Todo](#todo)
 
 <br>
@@ -58,21 +57,6 @@ Find the live version to play here:
 
 1. Open the 'index.html' in a browser like Google Chrome on any Desktop browser.
 2. Read instructions how to play & enjoy!
-
-<br><br>
-
-## Concepts
-
-Focusing on just the 'good' parts of the engine, here are a few technical concepts tried out:
-
-- Debug option for renderer and loop to allow progressing frame by frame
-  - Also a slow-motion option is available
-- 'Plugin style' object configuration for simplicity + consistency
-- Decoupled specific object classes to types (as we have no interfaces in JS, that's a quick & dirty workaround)
-- Decoupled hardware input from objects by Custom Events
-  - This would also simplify testing and remote control (e.g. via UI)
-- Multiple collision engines for different purposes (ships, projectile)
-- Dynamic animated state switches + animations in some objects
 
 <br><br>
 
