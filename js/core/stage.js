@@ -1,19 +1,15 @@
+// @flow
 class Stage {
-  
-  constructor () {
+  constructor() {
     // Values
     this.objects = [];
   }
 
-
-  add (object) {
+  add(object) {
     this.objects.push(object);
   }
 
-
-  set (objects) {
+  set(objects) {
     this.objects = objects;
   }
-
 }
-

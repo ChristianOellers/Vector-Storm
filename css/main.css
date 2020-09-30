@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   display: block;
   height: 100%;
 }
@@ -10,8 +11,8 @@ body {
 
 main {
   display: grid;
-  place-items: center;
   height: 100%;
+  place-items: center;
 }
 
 canvas {
@@ -19,8 +20,9 @@ canvas {
   border: 1px solid #222;
 }
 
-
-h1, h2 , h3 {
+h1,
+h2,
+h3 {
   color: #777;
   font-weight: normal;
   font-family: sans-serif;
@@ -42,9 +44,7 @@ p {
   font-size: 0.75rem;
 }
 
-
 ::selection {
   color: #aaa;
   background-color: #000;
 }
-

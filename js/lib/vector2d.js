@@ -1,3 +1,5 @@
+// @flow
+
 /**
  * ES6 upgrade of original source:
  *
@@ -9,74 +11,74 @@
  *   Please retain this copyright header in all versions of the software
  */
 class Vector2D {
+  vx = 0;
+  vy = 0;
 
-  constructor (x, y) {
+  constructor(x, y) {
     this.vx = x;
     this.vy = y;
   }
 
   // Scale up/down
-	scale (val) {
-		this.vx *= val;
-		this.vy *= val;
-	}
+  scale(val) {
+    this.vx *= val;
+    this.vy *= val;
+  }
 
-	// Add another vector
-	add (vector) {
-		this.vx += vector.vx;
-		this.vy += vector.vy;
-	}
+  // Add another vector
+  add(vector) {
+    this.vx += vector.vx;
+    this.vy += vector.vy;
+  }
 
-	// Subtract another vector
-	subtract (vector) {
-		this.vx -= vector.vx;
-		this.vy -= vector.vy;
-	}
+  // Subtract another vector
+  subtract(vector) {
+    this.vx -= vector.vx;
+    this.vy -= vector.vy;
+  }
 
-	dotProduct (val) {
-		return (this.vx * val.vx) + (this.vy * val.vy);
-	}
+  dotProduct(val) {
+    return this.vx * val.vx + this.vy * val.vy;
+  }
 
-	// Negate - Point to opposite direction
-	negate () {
-		this.vx = -this.vx;
-		this.vy = -this.vy;
-	}
+  // Negate - Point to opposite direction
+  negate() {
+    this.vx = -this.vx;
+    this.vy = -this.vy;
+  }
 
-	// Normalize unit length
+  // Normalize unit length
   // Return length before normalisation
-	normalize () {
-		var size = Math.sqrt(this.vx * this.vx + this.vy * this.vy);
+  normalize() {
+    const size = Math.sqrt(this.vx * this.vx + this.vy * this.vy);
 
     if (size) {
-			this.vx /= size;
-			this.vy /= size;
-		}
+      this.vx /= size;
+      this.vy /= size;
+    }
 
-		return size;
-	}
+    return size;
+  }
 
-	// Rotate by angle in radians
-	rotate (angle) {
-		this.vx = (this.vx * Math.cos(angle)) - (this.vy * Math.sin(angle));
-		this.vy = (this.vy * Math.cos(angle)) + (this.vx * Math.sin(angle));
-	}
+  // Rotate by angle in radians
+  rotate(angle) {
+    this.vx = this.vx * Math.cos(angle) - this.vy * Math.sin(angle);
+    this.vy = this.vy * Math.cos(angle) + this.vx * Math.sin(angle);
+  }
 
-	// Length
-	size () {
-		return Math.sqrt(this.vx * this.vx + this.vy * this.vy);
-	}
+  // Length
+  size() {
+    return Math.sqrt(this.vx * this.vx + this.vy * this.vy);
+  }
 
   // Fast length calculation - Return squared length
   // Useful to just compare vector lengths
-	sizeSquared () {
-		return this.vx * this.vx + this.vy * this.vy;
-	}
+  sizeSquared() {
+    return this.vx * this.vx + this.vy * this.vy;
+  }
 
-	// Debug
-	toString () {
-		return 'vx = ' + this.vx + ', vy = ' + this.vy;
-	}
-
+  // Debug
+  toString() {
+    return `vx = ${this.vx}, vy = ${this.vy}`;
+  }
 }
-
