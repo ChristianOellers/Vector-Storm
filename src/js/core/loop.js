@@ -1,32 +1,29 @@
+// @flow
 class Loop {
-  
-  constructor (params) {
+  constructor(params) {
     // Instance
-    this.score       = params.score;
-    this.renderLoop  = params.renderLoop;
+    this.score = params.score;
+    this.renderLoop = params.renderLoop;
     this.useInterval = params.useInterval;
-    
+
     // Values
-    this.intervalSpeed = (1000/60) * 2; // Slow motion
-    this.interval      = null;
-    this.stopped       = false;
-    
+    this.intervalSpeed = (1000 / 60) * 2; // Slow motion
+    this.interval = null;
+    this.stopped = false;
+
     this.bindEvents();
   }
-  
 
-  run () {
+  run() {
     if (this.useInterval) {
       const callback = this.loopInterval.bind(this);
-      this.interval  = setInterval(callback, this.intervalSpeed);
-    }
-    else {
+      this.interval = setInterval(callback, this.intervalSpeed);
+    } else {
       this.loop();
     }
   }
 
-  
-  loopInterval () {
+  loopInterval() {
     if (this.stopped) {
       return;
     }
@@ -35,8 +32,7 @@ class Loop {
     this.score.checkConditions();
   }
 
-
-  loop () {
+  loop() {
     if (this.stopped) {
       return;
     }
@@ -46,36 +42,37 @@ class Loop {
 
     window.requestAnimationFrame(this.loop.bind(this));
   }
-  
-  
-  stop () {
+
+  stop() {
     window.cancelAnimationFrame(this.loop);
     clearInterval(this.interval);
 
-    this.stopped  = true;
+    this.stopped = true;
     this.interval = null;
   }
 
+  bindEvents() {
+    window.addEventListener(
+      'score:game-end',
+      (event) => {
+        const objects = event.detail.data;
 
-  bindEvents () {
-    window.addEventListener('score:game-end', (event) => {
-      const objects = event.detail.data;
-      
-      this.stop();
+        this.stop();
+      },
+      true,
+    );
 
-    }, true);
+    window.addEventListener(
+      'controls:keydown',
+      (event) => {
+        const ev = event.detail.data;
 
-
-    window.addEventListener('controls:keydown', (event) => {
-      const ev = event.detail.data;
-
-      // Manually run
-      if (ev.ctrlKey) {
-        this.loopInterval();
-      }
-
-    }, true);
+        // Manually run
+        if (ev.ctrlKey) {
+          this.loopInterval();
+        }
+      },
+      true,
+    );
   }
-
 }
-

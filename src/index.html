@@ -1,65 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
+    <meta charset="utf-8" />
+    <title>Vector-Storm</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/fx.css" />
+  </head>
 
-  <meta charset="utf-8">
-  <title>Vektor Trek</title>
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/fx.css">
+  <body>
+    <main id="fx">
+      <canvas id="app" width="700" height="480"></canvas>
 
-</head>
-<body>
+      <section class="description">
+        <p>Get extra score by bouncing into enemy ships. Avoid being hit by enemy ship projectiles.</p>
+        <p>You win with <strong>200+</strong> points; but lose with <strong>-100</strong> points score.</p>
+        <h3>Controls</h3>
+        <p>
+          Mouse: Down = Fly, Up = Stop <br />
+          Shift: Speed boost <br />
+          Ctrl : Progress step by step (Developers)
+        </p>
+      </section>
+    </main>
 
-  <main id="fx">
-    <canvas id="app" width="700" height="480"></canvas>
+    <script defer src="js/helper/collision.js"></script>
+    <script defer src="js/helper/collision-bounce.js"></script>
+    <script defer src="js/helper/collision-projectile.js"></script>
+    <script defer src="js/helper/view.js"></script>
 
-    <section class="description">
-      <h1>Vektor Trek</h1>
-      <p>
-        Get extra score by bouncing into enemy ships.
-        Avoid being hit by enemy ship projectiles.
-      </p>
-      <p>
-        You win with <b>200+</b> points; but lose with <b>-100</b> points score.
-      </p>
-        
-      <h3>Controls</h3>
-      <p>
-        Mouse: Down = Fly, Up = Stop <br>
-        Shift: Speed boost <br>
-        Ctrl : Progress step by step (Developers)
-      </p>
-      
-      <br>
-      <p class="footnote">
-        If the game get's laggy, restart - It's badly programmed ;)
-      </p>
-    </section>
-  </main>
+    <script defer src="js/lib/vector2d.js"></script>
 
+    <script defer src="js/core/generator/projectiles.js"></script>
+    <script defer src="js/core/generator/vectors.js"></script>
 
-  <script defer src="js/helper/collision.js"></script>
-  <script defer src="js/helper/collision-bounce.js"></script>
-  <script defer src="js/helper/collision-projectile.js"></script>
-  <script defer src="js/helper/view.js"></script>
+    <script defer src="js/core/objects/phaser.js"></script>
+    <script defer src="js/core/objects/point.js"></script>
+    <script defer src="js/core/objects/projectile.js"></script>
+    <script defer src="js/core/objects/ship.js"></script>
+    <script defer src="js/core/objects/ship-player.js"></script>
+    <script defer src="js/core/controls.js"></script>
+    <script defer src="js/core/loop.js"></script>
+    <script defer src="js/core/render-loop.js"></script>
+    <script defer src="js/core/score.js"></script>
+    <script defer src="js/core/stage.js"></script>
 
-  <script defer src="js/lib/vector2d.js"></script>
-  
-  <script defer src="js/core/generator/projectiles.js"></script>
-  <script defer src="js/core/generator/vectors.js"></script>
-  <script defer src="js/core/objects/phaser.js"></script>
-  <script defer src="js/core/objects/point.js"></script>
-  <script defer src="js/core/objects/projectile.js"></script>
-  <script defer src="js/core/objects/ship.js"></script>
-  <script defer src="js/core/objects/ship-player.js"></script>
-  <script defer src="js/core/controls.js"></script>
-  <script defer src="js/core/loop.js"></script>
-  <script defer src="js/core/render-loop.js"></script>
-  <script defer src="js/core/score.js"></script>
-  <script defer src="js/core/stage.js"></script>
-
-  <script defer src="js/run.js"></script>
-
-</body>
+    <script defer src="js/run.js"></script>
+  </body>
 </html>
-
