@@ -13,31 +13,30 @@
   "css.validate": false,
   "json.format.enable": true,
   "less.validate": false,
-  "scss.validate": false,
   "javascript.validate.enable": false,
-  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": true,
+  "scss.validate": false,
   "stylelint.enable": true,
   "flow.pathToFlow": "${workspaceRoot}/node_modules/.bin/flow",
   "htmlhint.documentSelector": ["html"],
-  "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.codeActionsOnSave": {
-      "source.fixAll.stylelint": true
-    }
-  },
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
-    }
   },
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[markdown]": {
     "editor.acceptSuggestionOnEnter": "off"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.stylelint": true
+    }
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
   }
 }

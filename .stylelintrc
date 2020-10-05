@@ -3,8 +3,13 @@
     "stylelint-config-standard",
     "stylelint-config-prettier"
   ],
+  "plugins": [
+    "stylelint-scss"
+  ],
+  "ignoreFiles": [
+    "dist/**/*.css"
+  ],
   "rules": {
-    "at-rule-no-unknown": null,
     "at-rule-empty-line-before": [
       "always",
       {
@@ -20,6 +25,7 @@
         ]
       }
     ],
+    "at-rule-no-unknown": null,
     "color-hex-case": "lower",
     "color-named": "never",
     "declaration-no-important": true,
@@ -30,7 +36,7 @@
     ],
     "function-url-quotes": "always",
     "max-empty-lines": 2,
-    "max-nesting-depth": 10,
+    "max-nesting-depth": 4,
     "media-feature-name-no-unknown": [
       true,
       {
@@ -61,6 +67,8 @@
           "/font-?family/i"
         ]
       }
-    ]
+    ],
+    "scss/at-extend-no-missing-placeholder": true,
+    "scss/at-rule-no-unknown": true
   }
 }
