@@ -18,9 +18,7 @@
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": true,
   "stylelint.enable": true,
   "flow.pathToFlow": "${workspaceRoot}/node_modules/.bin/flow",
-  "htmlhint.documentSelector": [
-    "html"
-  ],
+  "htmlhint.documentSelector": ["html"],
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.codeActionsOnSave": {
