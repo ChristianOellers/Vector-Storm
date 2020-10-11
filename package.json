@@ -5,6 +5,7 @@
   "license": "MIT",
   "version": "0.0.1",
   "main": "src/index.html",
+  "type": "module",
   "private": true,
   "scripts": {
     "start:dev": "npx serve -s src/",
@@ -42,6 +43,7 @@
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-scss": "^3.18.0",
+    "ts-loader": "^8.0.4",
     "tslib": "^2.0.1",
     "typescript": "^3.9.7",
     "webpack": "^5.0.0",
