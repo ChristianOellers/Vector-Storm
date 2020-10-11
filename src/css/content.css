@@ -1,28 +1,4 @@
-html,
-body {
-  display: block;
-  height: 100%;
-}
-
-body {
-  background: #000;
-  margin: 0;
-}
-
-main {
-  display: grid;
-  height: 100%;
-  place-items: center;
-}
-
-canvas {
-  background: #111;
-  border: 1px solid #222;
-}
-
-h1,
-h2,
-h3 {
+.title {
   color: #777;
   font-weight: normal;
   font-family: sans-serif;
@@ -30,7 +6,7 @@ h3 {
   cursor: default;
 }
 
-p {
+.text {
   color: #777;
   font-family: sans-serif;
   font-size: 1rem;

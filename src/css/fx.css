@@ -1,25 +1,20 @@
-html,
-body {
-  overflow: hidden;
-}
-
-#fx {
+.fx {
   position: relative;
   left: 0;
   top: 0;
 }
 
-#fx.shake {
+.fx.shake {
   left: 0;
   top: 0;
-  animation-name: shakeFx;
+  animation-name: fxShake;
   animation-duration: 1s;
   animation-iteration-count: 1;
   animation-timing-function: ease-in-out;
   animation-play-state: running;
 }
 
-@keyframes shakeFx {
+@keyframes fxShake {
   0% {
     left: 0;
     top: 0;
