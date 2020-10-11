@@ -23,7 +23,7 @@
     "importHelpers": true,
     "isolatedModules": true,
     "moduleResolution": "node",
-    "noEmit": true,
+    "noEmit": false,
     "noImplicitAny": true,
     "removeComments": true,
     "resolveJsonModule": true,

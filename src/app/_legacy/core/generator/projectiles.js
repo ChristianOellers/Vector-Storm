@@ -6,7 +6,7 @@ class Projectiles {
     this.view = params.view; // Class: View
     this.projectile1 = params.projectile1; // Class: *
     this.projectile2 = params.projectile2; // Class: *
-    this.multiShot = params.multiShot; // Number
+    this.multiShot = params.multiShot || 1 + ((Math.random() * 1) | 0); // Number
 
     // Values
     this.container = this.view.canvas;
