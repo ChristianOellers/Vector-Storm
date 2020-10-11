@@ -1,6 +1,6 @@
 // @flow
 class Controls {
-  private container;
+  #container;
 
   constructor(params) {
     // Instance
