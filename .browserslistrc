@@ -1,7 +1,6 @@
 [production]
 > 0.5%
 not dead
-ie 11
 
 [development]
 last 1 chrome version

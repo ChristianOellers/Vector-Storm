@@ -1,0 +1,22 @@
+html,
+body {
+  display: block;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: #000;
+  margin: 0;
+}
+
+.main {
+  display: grid;
+  height: 100%;
+  place-items: center;
+}
+
+.app {
+  background: #111;
+  border: 1px solid #222;
+}
