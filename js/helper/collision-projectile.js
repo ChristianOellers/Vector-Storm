@@ -16,7 +16,6 @@ class CollisionProjectile {
 
     for (let i = 0; i < count; i++) {
       const type = objects[i].__proto__.constructor.name;
-
       const owner = objects[i].owner.__proto__.constructor.name;
 
       if (type == this.testType && owner == this.testOwner) {
