@@ -177,7 +177,6 @@ export default class ShipPlayerObject {
     if (this.isMovingFast) {
       return;
     }
-    console.log('MOVEFAST');
 
     this.velocityVector.scale(2);
     this.isMovingFast = true;
