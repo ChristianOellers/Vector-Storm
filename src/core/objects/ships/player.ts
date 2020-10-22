@@ -1,4 +1,4 @@
-import Vector2D from './lib/vector2d';
+import Vector2D from 'lib/vector2d';
 
 /**
  *
@@ -156,13 +156,13 @@ export default class ShipPlayerObject {
     const { speedMax } = this;
     const speed = 0;
 
-    this.x += this.velocityVector.vx;
-    this.y += this.velocityVector.vy;
+    this.x += this.velocityVector.x;
+    this.y += this.velocityVector.y;
 
     this.velocityVector.scale(this.gravity);
     this.velocityVector.add(this.thrust);
 
-    this.speed = this.velocityVector.size();
+    this.speed = this.velocityVector.sizeSqrt();
 
     if (this.speed > speedMax) {
       this.velocityVector.normalize();

@@ -1,6 +1,10 @@
-// @flow
-
-class CollisionProjectile {
+/**
+ *
+ */
+export default class CollisionProjectileHelper {
+  /**
+   *
+   */
   constructor(params) {
     // Instance
     this.view = params.view; // Class: View
@@ -10,13 +14,15 @@ class CollisionProjectile {
     this.testOwner = 'Ship';
   }
 
-  // Ships only (radiusRange)
+  /**
+   * Ships only (radiusRange).
+   */
   testObjects(objects) {
     const count = objects.length;
 
     for (let i = 0; i < count; i++) {
       const type = objects[i].__proto__.constructor.name;
-      const owner = objects[i].owner.__proto__.constructor.name;
+      const owner = objects[i].owner && objects[i].owner.__proto__.constructor.name;
 
       if (type == this.testType && owner == this.testOwner) {
         this.testHit(objects[i]);
@@ -24,6 +30,9 @@ class CollisionProjectile {
     }
   }
 
+  /**
+   *
+   */
   testHit(projectile) {
     const { player } = this;
     const size = player.sizeShip;

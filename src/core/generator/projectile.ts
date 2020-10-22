@@ -1,4 +1,4 @@
-import Vector2D from './lib/vector2d';
+import Vector2D from 'lib/vector2d';
 
 /**
  *
@@ -28,13 +28,14 @@ export default class ProjectileGenerator {
     const vector = new Vector2D(o2.x, o2.y);
     const rnd = -(Math.random() * 50) + 25;
 
-    vector.vx = o2.x - (o1.x + rnd);
-    vector.vy = o2.y - (o1.y + rnd);
+    vector.x = o2.x - (o1.x + rnd);
+    vector.y = o2.y - (o1.y + rnd);
 
     vector.normalize();
 
     // Slightly inaccurate
     vector.rotate(Math.random() * 0.05);
+
 
     const p = new this.projectile1({
       view: this.view,
@@ -77,8 +78,8 @@ export default class ProjectileGenerator {
   createProjectileEnemy(o1, o2) {
     const vector = new Vector2D(o1.x, o1.y);
 
-    vector.vx = o1.x - o2.x;
-    vector.vy = o1.y - o2.y;
+    vector.x = o1.x - o2.x;
+    vector.y = o1.y - o2.y;
 
     vector.normalize();
 

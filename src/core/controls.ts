@@ -26,15 +26,15 @@ export default class Controls {
     container.addEventListener(
       'mousedown',
       (event) => {
-        this.onEvent("controls:mousedown");
+        this.onEvent('controls:mousedown');
       },
       true
     );
 
     window.addEventListener(
-      "keydown",
+      'keydown',
       (event) => {
-        this.onEvent("controls:keydown");
+        this.onEvent('controls:keydown');
       },
       true
     );

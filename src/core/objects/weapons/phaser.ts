@@ -37,8 +37,8 @@ export default class PhaserWeaponObject {
     ctx.globalAlpha = this.lifespan / 100;
     ctx.strokeStyle = this.color;
     ctx.lineWidth = this.size;
-    ctx.moveTo(v1.vx, v1.vy);
-    ctx.lineTo(v2.vx, v2.vy);
+    ctx.moveTo(v1.x, v1.y);
+    ctx.lineTo(v2.x, v2.y);
     ctx.closePath();
     ctx.stroke();
 

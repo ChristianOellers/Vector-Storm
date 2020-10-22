@@ -2,9 +2,9 @@
   "compileOnSave": false,
   "compilerOptions": {
     "outDir": "./dist/",
-    "baseUrl": "src",
+    "baseUrl": "./src/",
     "module": "esnext",
-    "target": "es5",
+    "target": "es6",
     "lib": [
       "dom",
       "dom.iterable",

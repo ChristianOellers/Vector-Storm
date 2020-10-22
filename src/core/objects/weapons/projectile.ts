@@ -58,8 +58,8 @@ export default class ProjectileWeaponObject {
    *
    */
   move() {
-    this.x += this.velocityVector.vx;
-    this.y += this.velocityVector.vy;
+    this.x += this.velocityVector.x;
+    this.y += this.velocityVector.y;
 
     this.velocityVector.scale(this.thrust);
   }

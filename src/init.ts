@@ -1,5 +1,5 @@
 // Core / Generators
-import ProjectileGenerator from './core/generator/projectile';
+import ProjectileGenerator from './core/generator/projectile.ts';
 
 // Core / Objects
 import ShipEnemyObject from './core/objects/ships/enemy';
@@ -15,10 +15,10 @@ import Score from './core/score';
 import Stage from './core/stage';
 
 // Helper
-import Collision from './helper/collision';
-import CollisionBounce from './helper/collision-bounce';
-import CollisionProjectile from './helper/collision-projectile';
-import View from './helper/view';
+import CollisionHelper from './helper/collision';
+import CollisionBounceHelper from './helper/collision-bounce';
+import CollisionProjectileHelper from './helper/collision-projectile';
+import ViewHelper from './helper/view';
 
 /**
  *
@@ -46,7 +46,7 @@ export default class Init {
   constructor() {
     this.stage = new Stage();
 
-    this.view = new View({
+    this.view = new ViewHelper({
       domElementId: 'app',
     });
 
@@ -54,8 +54,8 @@ export default class Init {
       view: this.view,
     });
 
-    const collisionBounce = new CollisionBounce();
-    const collision = new Collision({
+    const collisionBounce = new CollisionBounceHelper();
+    const collision = new CollisionHelper({
       view: this.view,
     });
 
@@ -71,7 +71,7 @@ export default class Init {
       x: this.view.centerX + 20,
       y: this.view.centerY - 20,
       id: 0,
-    });
+    }); 
 
     const score = new Score({
       view: this.view,
@@ -80,7 +80,7 @@ export default class Init {
       scoreLose: this.#config.scoreLose,
     });
 
-    const collisionProjectile = new CollisionProjectile({
+    const collisionProjectile = new CollisionProjectileHelper({
       view: this.view,
       player: this.shipPlayer,
     });
@@ -103,9 +103,9 @@ export default class Init {
   /**
    *
    */
-  run() {
+  init() {
     this.setup();
-    this.loop();
+    this.start();
   }
 
   /**
@@ -131,7 +131,7 @@ export default class Init {
   /**
    *
    */
-  loop() {
+  start() {
     window.onload = () => {
       this.renderLoop.run();
 

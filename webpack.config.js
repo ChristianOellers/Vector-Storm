@@ -23,6 +23,9 @@ module.exports = {
   },
   resolve: {
     extensions: ['.ts', '.js'],
+    alias: {
+      lib: path.resolve(__dirname, 'src/lib/'),
+    }
   },
   optimization: {
     usedExports: true,

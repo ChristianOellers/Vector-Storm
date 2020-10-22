@@ -1,4 +1,4 @@
-import Vector2D from './lib/vector2d';
+import Vector2D from 'lib/vector2d';
 
 /**
  *

@@ -2,5 +2,5 @@ import Init from './init';
 
 const init: Init = new Init();
 
-init.run();
+init.init();
 
