@@ -15,8 +15,7 @@
     "lint:scss": "npx stylelint 'src/**/*.scss' --syntax scss",
     "test:jest": "npx jest",
     "test:jest:coverage": "npx jest --coverage",
-    "project:clean": "rm -rf node_modules",
-    "debug:ts": "npx tsc --traceResolution >> debug-trace.txt"
+    "project:clean": "rm -rf node_modules"
   },
   "dependencies": {
     "bootstrap": "^4.5.0"

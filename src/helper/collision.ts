@@ -12,7 +12,7 @@ export default class CollisionHelper {
     this.view = params.view; // Class: View
 
     // Values
-    this.playerType = 'ShipPlayer';
+    this.playerType = 'ShipPlayerObject';
     this.score = 1;
   }
 
@@ -35,7 +35,7 @@ export default class CollisionHelper {
 
         vector.x = o2.x - o1.x;
         vector.y = o2.y - o1.y;
-        distance = vector.size();
+        distance = vector.sizeSqrt();
 
         // Distance < sum of 2 radii = Collision
         // if (distance < (o1.radius + o2.radius)) {

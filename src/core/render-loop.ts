@@ -14,7 +14,7 @@ export default class RenderLoop {
     this.view = params.view;
 
     // Values
-    this.collisionTypes = ['Ship', 'ShipPlayer'];
+    this.collisionTypes = ['ShipEnemyObject', 'ShipPlayerObject'];
     this.isAnimating = false;
     this.clear = false; // If not, draw over
     this.smear = 0.5; // Blur FX; lower values = More blur

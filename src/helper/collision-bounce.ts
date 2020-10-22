@@ -38,14 +38,14 @@ export default class CollisionBounceHelper {
 
         vector.x = o2.x - o1.x;
         vector.y = o2.y - o1.y;
-        distance = vector.size();
+        distance = vector.sizeSqrt();
 
         // Distance < sum of 2 radii = Collision
         // Move objects apart and bounce off each other
         if (distance < o1.radius + o2.radius) {
           vector.normalize();
           vector.scale(o1.radius + o2.radius - distance);
-          vector.negate();
+          vector.invert();
 
           o1.x += vector.x;
           o1.y += vector.y;
@@ -61,8 +61,8 @@ export default class CollisionBounceHelper {
    */
   bounce(o1, o2) {
     const collisionAngle = Math.atan2(o1.y - o2.y, o1.x - o2.x);
-    const length1 = o1.velocityVector.size();
-    const length2 = o2.velocityVector.size();
+    const length1 = o1.velocityVector.sizeSqrt();
+    const length2 = o2.velocityVector.sizeSqrt();
 
     const directionAngle1 = Math.atan2(o1.velocityVector.y, o1.velocityVector.x);
     const directionAngle2 = Math.atan2(o2.velocityVector.y, o2.velocityVector.x);
