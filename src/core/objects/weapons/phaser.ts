@@ -1,5 +1,10 @@
-// @flow
-class Phaser {
+/**
+ *
+ */
+export default class PhaserWeaponObject {
+  /**
+   *
+   */
   constructor(params) {
     // Instance
     this.view = params.view; // Class: View
@@ -14,6 +19,9 @@ class Phaser {
     this.isDead = false;
   }
 
+  /**
+   *
+   */
   draw() {
     if (this.isDead) {
       return;
@@ -37,6 +45,9 @@ class Phaser {
     ctx.restore();
   }
 
+  /**
+   *
+   */
   move() {
     this.lifespan--;
 

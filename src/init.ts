@@ -1,3 +1,28 @@
+// Core / Generators
+import ProjectileGenerator from './core/generator/projectile';
+
+// Core / Objects
+import ShipEnemyObject from './core/objects/ships/enemy';
+import ShipPlayerObject from './core/objects/ships/player';
+import PhaserWeaponObject from './core/objects/weapons/phaser';
+import ProjectileWeaponObject from './core/objects/weapons/projectile';
+
+// Core
+import Controls from './core/controls';
+import Loop from './core/loop';
+import RenderLoop from './core/render-loop';
+import Score from './core/score';
+import Stage from './core/stage';
+
+// Helper
+import Collision from './helper/collision';
+import CollisionBounce from './helper/collision-bounce';
+import CollisionProjectile from './helper/collision-projectile';
+import View from './helper/view';
+
+/**
+ *
+ */
 export default class Init {
   #config = {
     runGame: true,
@@ -15,6 +40,9 @@ export default class Init {
   stage: any;
   view: any;
 
+  /**
+   *
+   */
   constructor() {
     this.stage = new Stage();
 
@@ -31,14 +59,14 @@ export default class Init {
       view: this.view,
     });
 
-    new Projectiles({
-      projectile1: Projectile,
-      projectile2: Phaser,
+    new ProjectileGenerator({
+      projectile1: ProjectileWeaponObject,
+      projectile2: PhaserWeaponObject,
       stage: this.stage,
       view: this.view,
     });
 
-    this.shipPlayer = new ShipPlayer({
+    this.shipPlayer = new ShipPlayerObject({
       view: this.view,
       x: this.view.centerX + 20,
       y: this.view.centerY - 20,
@@ -72,13 +100,24 @@ export default class Init {
     });
   }
 
+  /**
+   *
+   */
+  run() {
+    this.setup();
+    this.loop();
+  }
+
+  /**
+   *
+   */
   setup() {
     const view = this.view;
 
     this.stage.add(this.shipPlayer);
 
     for (let i = 0; i < this.#config.enemies; i++) {
-      const ship = new Ship({
+      const ship = new ShipEnemyObject({
         view,
         x: view.getRandomPositionX(20), // 20 = Ship size
         y: view.getRandomPositionY(20),
@@ -89,7 +128,10 @@ export default class Init {
     }
   }
 
-  run() {
+  /**
+   *
+   */
+  loop() {
     window.onload = () => {
       this.renderLoop.run();
 

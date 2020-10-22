@@ -1,5 +1,12 @@
-// @flow
-class Projectiles {
+import Vector2D from './lib/vector2d';
+
+/**
+ *
+ */
+export default class ProjectileGenerator {
+  /**
+   *
+   */
   constructor(params) {
     // Instance
     this.stage = params.stage;
@@ -14,6 +21,9 @@ class Projectiles {
     this.bindEvents();
   }
 
+  /**
+   *
+   */
   createProjectile1(o1, o2) {
     const vector = new Vector2D(o2.x, o2.y);
     const rnd = -(Math.random() * 50) + 25;
@@ -40,6 +50,9 @@ class Projectiles {
     this.stage.add(p);
   }
 
+  /**
+   *
+   */
   createProjectile2(o1, o2) {
     const v1 = new Vector2D(o1.x, o1.y);
     const v2 = new Vector2D(o2.x, o2.y);
@@ -58,6 +71,9 @@ class Projectiles {
     this.stage.add(p);
   }
 
+  /**
+   *
+   */
   createProjectileEnemy(o1, o2) {
     const vector = new Vector2D(o1.x, o1.y);
 
@@ -83,7 +99,9 @@ class Projectiles {
     this.stage.add(p);
   }
 
-  // On collisions
+  /**
+   * On collisions
+   */
   bindEvents() {
     window.addEventListener(
       'collision:hit',

@@ -1,7 +1,6 @@
-import TestComponent from './app/test';
+import Init from './init';
 
-const t: TestComponent = new TestComponent();
+const init: Init = new Init();
 
-window.onload = () => {
-  console.log('hi', t);
-};
+init.run();
+

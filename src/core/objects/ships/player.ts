@@ -1,5 +1,12 @@
-// @flow
-class ShipPlayer {
+import Vector2D from './lib/vector2d';
+
+/**
+ *
+ */
+export default class ShipPlayerObject {
+  /**
+   *
+   */
   constructor(params) {
     // Instance
     this.view = params.view; // Class: View
@@ -37,6 +44,9 @@ class ShipPlayer {
     this.bindEvents();
   }
 
+  /**
+   *
+   */
   draw() {
     const { ctx } = this.view;
     const { sizePoint } = this;
@@ -73,6 +83,9 @@ class ShipPlayer {
     ctx.restore();
   }
 
+  /**
+   *
+   */
   drawState() {
     const { ctx } = this.view;
     const { sizePoint } = this;
@@ -117,6 +130,9 @@ class ShipPlayer {
     ctx.stroke();
   }
 
+  /**
+   *
+   */
   move() {
     this.moveControl();
 
@@ -133,6 +149,9 @@ class ShipPlayer {
     this.angle = angleRad;
   }
 
+  /**
+   *
+   */
   moveControl() {
     const { speedMax } = this;
     const speed = 0;
@@ -151,6 +170,9 @@ class ShipPlayer {
     }
   }
 
+  /**
+   *
+   */
   setFastMove() {
     if (this.isMovingFast) {
       return;
@@ -166,8 +188,9 @@ class ShipPlayer {
     }, this.isMovingFastTime);
   }
 
-  // --------------------------------------------------------------------------------------------------------------------------- Hit testing
-
+  /**
+   *
+   */
   takeHit() {
     if (!this.isTransitioning) {
       this.isTransitioning = true;
@@ -189,7 +212,9 @@ class ShipPlayer {
     }
   }
 
-  // Bind game events to internal callback functions
+  /**
+   * Bind game events to internal callback functions.
+   */
   triggerFx() {
     const el = document.getElementById('fx');
 
@@ -200,9 +225,9 @@ class ShipPlayer {
     }, 100);
   }
 
-  // -------------------------------------------------------------------------------------------------------------------------- Controllable
-
-  // Bind game events to internal callback functions
+  /**
+   * Bind game events to internal callback functions.
+   */
   bindEvents() {
     const { container } = this;
 
@@ -243,7 +268,9 @@ class ShipPlayer {
     );
   }
 
-  // Set mouse position within view
+  /**
+   * Set mouse position within view.
+   */
   onMove(event) {
     const bounds = this.view.canvas.getBoundingClientRect();
 
@@ -251,7 +278,9 @@ class ShipPlayer {
     this.mouseY = event.clientY - bounds.top;
   }
 
-  // Create new thrust vector
+  /**
+   * Create new thrust vector.
+   */
   onFlyStart(_event) {
     let { thrust } = this;
 
@@ -263,7 +292,9 @@ class ShipPlayer {
     this.thrust = thrust;
   }
 
-  // Reset thrust
+  /**
+   * Reset thrust.
+   */
   onFlyStop(_event) {
     this.thrust = new Vector2D(0, 0);
   }

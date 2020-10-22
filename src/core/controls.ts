@@ -1,7 +1,12 @@
-// @flow
-class Controls {
+/**
+ *
+ */
+export default class Controls {
   #container;
 
+  /**
+   *
+   */
   constructor(params) {
     // Instance
     this.view = params.view;
@@ -12,6 +17,9 @@ class Controls {
     this.bindEvents();
   }
 
+  /**
+   *
+   */
   bindEvents() {
     const { container } = this;
 
@@ -32,6 +40,9 @@ class Controls {
     );
   }
 
+  /**
+   *
+   */
   onEvent(eventName) {
     const { container } = this;
 

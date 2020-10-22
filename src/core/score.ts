@@ -1,5 +1,10 @@
-// @flow
-class Score {
+/**
+ *
+ */
+export default class Score {
+  /**
+   *
+   */
   constructor(params) {
     // Instance
     this.view = params.view;
@@ -11,7 +16,9 @@ class Score {
     this.container = this.view.canvas;
   }
 
-  // On: Loop
+  /**
+   * On: Loop
+   */
   checkConditions() {
     const { player } = this;
     const { score } = player;
@@ -25,6 +32,9 @@ class Score {
     }
   }
 
+  /**
+   *
+   */
   draw(state) {
     const { view } = this;
     const score = this.player.score | 0;
@@ -60,6 +70,9 @@ class Score {
     ctx.restore();
   }
 
+  /**
+   *
+   */
   onEvent(eventName) {
     const { container } = this;
 

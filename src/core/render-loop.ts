@@ -1,5 +1,10 @@
-// @flow
-class RenderLoop {
+/**
+ *
+ */
+export default class RenderLoop {
+  /**
+   *
+   */
   constructor(params) {
     // Instance
     this.collision = params.collision;
@@ -18,6 +23,9 @@ class RenderLoop {
     this.bindEvents();
   }
 
+  /**
+   *
+   */
   run() {
     const { objects } = this.stage;
 
@@ -31,7 +39,9 @@ class RenderLoop {
     this.testObjects();
   }
 
-  // Todo: Outsource collision detection (inject, pass objects, let them filter)
+  /**
+   * Todo: Outsource collision detection (inject, pass objects, let them filter)
+   */
   testObjects() {
     const { objects } = this.stage;
 
@@ -57,6 +67,9 @@ class RenderLoop {
     this.collisionProjectile.testObjects(testCollisionProjectile);
   }
 
+  /**
+   *
+   */
   reset() {
     const { view } = this;
     const { ctx } = view;
@@ -71,6 +84,9 @@ class RenderLoop {
     }
   }
 
+  /**
+   *
+   */
   setFx() {
     if (this.isAnimating) {
       return;
@@ -87,6 +103,9 @@ class RenderLoop {
     }, this.animateTime);
   }
 
+  /**
+   *
+   */
   bindEvents() {
     window.addEventListener(
       'controls:keydown',
