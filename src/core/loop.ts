@@ -1,5 +1,10 @@
-// @flow
-class Loop {
+/**
+ *
+ */
+export default class Loop {
+  /**
+   *
+   */
   constructor(params) {
     // Instance
     this.score = params.score;
@@ -14,6 +19,9 @@ class Loop {
     this.bindEvents();
   }
 
+  /**
+   *
+   */
   run() {
     if (this.useInterval) {
       const callback = this.loopInterval.bind(this);
@@ -23,6 +31,9 @@ class Loop {
     }
   }
 
+  /**
+   *
+   */
   loopInterval() {
     if (this.stopped) {
       return;
@@ -32,6 +43,9 @@ class Loop {
     this.score.checkConditions();
   }
 
+  /**
+   *
+   */
   loop() {
     if (this.stopped) {
       return;
@@ -43,6 +57,9 @@ class Loop {
     window.requestAnimationFrame(this.loop.bind(this));
   }
 
+  /**
+   *
+   */
   stop() {
     window.cancelAnimationFrame(this.loop);
     clearInterval(this.interval);
@@ -51,6 +68,9 @@ class Loop {
     this.interval = null;
   }
 
+  /**
+   *
+   */
   bindEvents() {
     window.addEventListener(
       'score:game-end',

@@ -1,5 +1,10 @@
-// @flow
-class Phaser {
+/**
+ *
+ */
+export default class PhaserWeaponObject {
+  /**
+   *
+   */
   constructor(params) {
     // Instance
     this.view = params.view; // Class: View
@@ -14,6 +19,9 @@ class Phaser {
     this.isDead = false;
   }
 
+  /**
+   *
+   */
   draw() {
     if (this.isDead) {
       return;
@@ -29,14 +37,17 @@ class Phaser {
     ctx.globalAlpha = this.lifespan / 100;
     ctx.strokeStyle = this.color;
     ctx.lineWidth = this.size;
-    ctx.moveTo(v1.vx, v1.vy);
-    ctx.lineTo(v2.vx, v2.vy);
+    ctx.moveTo(v1.x, v1.y);
+    ctx.lineTo(v2.x, v2.y);
     ctx.closePath();
     ctx.stroke();
 
     ctx.restore();
   }
 
+  /**
+   *
+   */
   move() {
     this.lifespan--;
 

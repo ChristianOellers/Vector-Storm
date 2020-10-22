@@ -1,6 +1,10 @@
-// @flow
-
-class View {
+/**
+ *
+ */
+export default class ViewHelper {
+  /**
+   *
+   */
   constructor(params) {
     // Instance
     this.canvas = document.getElementById(params.domElementId);
@@ -13,10 +17,16 @@ class View {
     this.centerY = this.height / 2;
   }
 
+  /**
+   *
+   */
   getRandomPositionX(buffer) {
     return -buffer * 2 + Math.random() * this.width + buffer;
   }
 
+  /**
+   *
+   */
   getRandomPositionY(buffer) {
     return -buffer + Math.random() * this.height + buffer;
   }

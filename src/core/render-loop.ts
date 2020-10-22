@@ -1,5 +1,10 @@
-// @flow
-class RenderLoop {
+/**
+ *
+ */
+export default class RenderLoop {
+  /**
+   *
+   */
   constructor(params) {
     // Instance
     this.collision = params.collision;
@@ -9,7 +14,7 @@ class RenderLoop {
     this.view = params.view;
 
     // Values
-    this.collisionTypes = ['Ship', 'ShipPlayer'];
+    this.collisionTypes = ['ShipEnemyObject', 'ShipPlayerObject'];
     this.isAnimating = false;
     this.clear = false; // If not, draw over
     this.smear = 0.5; // Blur FX; lower values = More blur
@@ -18,6 +23,9 @@ class RenderLoop {
     this.bindEvents();
   }
 
+  /**
+   *
+   */
   run() {
     const { objects } = this.stage;
 
@@ -31,7 +39,9 @@ class RenderLoop {
     this.testObjects();
   }
 
-  // Todo: Outsource collision detection (inject, pass objects, let them filter)
+  /**
+   * Todo: Outsource collision detection (inject, pass objects, let them filter)
+   */
   testObjects() {
     const { objects } = this.stage;
 
@@ -57,6 +67,9 @@ class RenderLoop {
     this.collisionProjectile.testObjects(testCollisionProjectile);
   }
 
+  /**
+   *
+   */
   reset() {
     const { view } = this;
     const { ctx } = view;
@@ -71,6 +84,9 @@ class RenderLoop {
     }
   }
 
+  /**
+   *
+   */
   setFx() {
     if (this.isAnimating) {
       return;
@@ -87,6 +103,9 @@ class RenderLoop {
     }, this.animateTime);
   }
 
+  /**
+   *
+   */
   bindEvents() {
     window.addEventListener(
       'controls:keydown',

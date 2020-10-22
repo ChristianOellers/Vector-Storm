@@ -1,5 +1,12 @@
-// @flow
-class Ship {
+import Vector2D from 'lib/vector2d';
+
+/**
+ *
+ */
+export default class ShipEnemyObject {
+  /**
+   *
+   */
   constructor(params) {
     // Instance
     this.view = params.view; // Class: View
@@ -24,6 +31,9 @@ class Ship {
     this.velocityVector = new Vector2D(0, 0);
   }
 
+  /**
+   *
+   */
   draw() {
     const { ctx } = this.view;
     const { sizePoint } = this;
@@ -73,6 +83,9 @@ class Ship {
     ctx.restore();
   }
 
+  /**
+   *
+   */
   move() {
     this.moveControl();
 
@@ -89,8 +102,10 @@ class Ship {
     this.angle = angleRad;
   }
 
-  // Reposition
-  // Y = Keep a bit buffer
+  /**
+   * Reposition
+   * Y = Keep a bit buffer
+   */
   moveControl() {
     const { view } = this;
     const size = this.sizeShip;

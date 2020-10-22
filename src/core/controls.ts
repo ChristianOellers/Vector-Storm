@@ -1,7 +1,12 @@
-// @flow
-class Controls {
+/**
+ *
+ */
+export default class Controls {
   #container;
 
+  /**
+   *
+   */
   constructor(params) {
     // Instance
     this.view = params.view;
@@ -12,26 +17,32 @@ class Controls {
     this.bindEvents();
   }
 
+  /**
+   *
+   */
   bindEvents() {
     const { container } = this;
 
     container.addEventListener(
       'mousedown',
       (event) => {
-        this.onEvent("controls:mousedown");
+        this.onEvent('controls:mousedown');
       },
       true
     );
 
     window.addEventListener(
-      "keydown",
+      'keydown',
       (event) => {
-        this.onEvent("controls:keydown");
+        this.onEvent('controls:keydown');
       },
       true
     );
   }
 
+  /**
+   *
+   */
   onEvent(eventName) {
     const { container } = this;
 

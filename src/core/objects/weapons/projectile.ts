@@ -1,5 +1,10 @@
-// @flow
-class Projectile {
+/**
+ *
+ */
+export default class ProjectileWeaponObject {
+  /**
+   *
+   */
   constructor(params) {
     // Instance
     this.view = params.view; // Class: View
@@ -17,6 +22,9 @@ class Projectile {
     this.isDead = false;
   }
 
+  /**
+   *
+   */
   draw() {
     const { ctx } = this.view;
     const { x } = this;
@@ -46,9 +54,12 @@ class Projectile {
     ctx.restore();
   }
 
+  /**
+   *
+   */
   move() {
-    this.x += this.velocityVector.vx;
-    this.y += this.velocityVector.vy;
+    this.x += this.velocityVector.x;
+    this.y += this.velocityVector.y;
 
     this.velocityVector.scale(this.thrust);
   }
