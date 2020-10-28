@@ -113,7 +113,7 @@ export default class ProjectileGenerator {
     window.addEventListener(
       'collision:hit',
       (event: any) => {
-        const { o1, o2 }: any = event.detail.data;
+        const [o1, o2]: any = event.detail.data;
 
         this.createProjectileEnemy(o1, o2);
 

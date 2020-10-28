@@ -9,7 +9,7 @@
   "sideEffects": false,
   "scripts": {
     "build": "npx webpack",
-    "start": "npx webpack-dev-server --open",
+    "start": "npx webpack serve",
     "watch": "npx webpack --watch",
     "lint:ts": "npx flow",
     "lint:scss": "npx stylelint 'src/**/*.scss' --syntax scss",
