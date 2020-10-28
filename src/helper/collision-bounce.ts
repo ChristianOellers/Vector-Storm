@@ -3,12 +3,10 @@ import Vector2D from 'lib/vector2d';
 /**
  * Collision detection + Bounce effect.
  *
- * Todo
- * - Fix: Sometimes extreme vector values are created when objects collide
- *   for a longer time (around the circles tangent?)
- *
  * Source
  * - O'Reilly - Supercharged JavaScript Graphics - Raffaele Cecco
+ *
+ * @todo Fix: Sometimes extreme vector values are created when objects collide for a longer time (around the circles tangent?)
  */
 export default class CollisionBounceHelper {
   score: number;
