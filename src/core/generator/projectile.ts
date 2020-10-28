@@ -36,7 +36,6 @@ export default class ProjectileGenerator {
     // Slightly inaccurate
     vector.rotate(Math.random() * 0.05);
 
-
     const p = new this.projectile1({
       view: this.view,
       owner: o1,

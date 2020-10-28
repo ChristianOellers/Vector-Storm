@@ -4,10 +4,14 @@ import Vector2D from 'lib/vector2d';
  *
  */
 export default class CollisionHelper {
+  view: any;
+  playerType: string;
+  score: number;
+
   /**
    *
    */
-  constructor(params) {
+  constructor(params: any) {
     // Instance
     this.view = params.view; // Class: View
 
@@ -19,7 +23,7 @@ export default class CollisionHelper {
   /**
    * Ships only (radiusRange)
    */
-  testObjects(objects) {
+  testObjects(objects: any) {
     const vector = new Vector2D(0, 0);
     const count = objects.length;
     let distance = 0;
@@ -48,10 +52,10 @@ export default class CollisionHelper {
 
   /**
    * Check if direction of 2 circles are aligned.
-   * 
+   *
    * Todo - Issues
    * - BOTH circles can match 'hit', although only one is pointing in the proper direction.
-   * 
+   *
    * *1) Mirror angle by adding +180 fixes the calculation, although it now unwantedly works for both circles.
    * *2) Angle MUST be reset or all other calculations will break.
    */

@@ -24,7 +24,7 @@ import ViewHelper from './helper/view';
  *
  */
 export default class Init {
-  #config = {
+  #config: any = {
     runGame: true,
     scoreWin: 200,
     scoreLose: -100,
@@ -34,11 +34,16 @@ export default class Init {
     },
   };
 
-  loop: any;
-  renderLoop: any;
-  shipPlayer: any;
-  stage: any;
-  view: any;
+  // Core / Objects
+  shipPlayer: ShipPlayerObject;
+
+  // Core
+  loop: Loop;
+  renderLoop: RenderLoop;
+  stage: Stage;
+
+  // Helper
+  view: ViewHelper;
 
   /**
    *
@@ -71,7 +76,7 @@ export default class Init {
       x: this.view.centerX + 20,
       y: this.view.centerY - 20,
       id: 0,
-    }); 
+    });
 
     const score = new Score({
       view: this.view,
@@ -112,11 +117,11 @@ export default class Init {
    *
    */
   setup() {
-    const view = this.view;
+    const view: ViewHelper = this.view;
 
     this.stage.add(this.shipPlayer);
 
-    for (let i = 0; i < this.#config.enemies; i++) {
+    for (let i: number = 0; i < this.#config.enemies; i++) {
       const ship = new ShipEnemyObject({
         view,
         x: view.getRandomPositionX(20), // 20 = Ship size
