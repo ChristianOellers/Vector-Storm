@@ -1,11 +1,18 @@
 /**
- *
+ * Global loop.
  */
 export default class Loop {
+  score: any;
+  renderLoop: any;
+  useInterval: boolean;
+  intervalSpeed: number;
+  interval: any;
+  stopped: boolean;
+
   /**
-   *
+   * Set dependencies and bind events.
    */
-  constructor(params) {
+  constructor(params: any) {
     // Instance
     this.score = params.score;
     this.renderLoop = params.renderLoop;
@@ -20,7 +27,7 @@ export default class Loop {
   }
 
   /**
-   *
+   * Run loop as interval or frame based.
    */
   run() {
     if (this.useInterval) {
@@ -32,7 +39,10 @@ export default class Loop {
   }
 
   /**
+   * Loop mode: Interval.
    *
+   * - Run renderer
+   * - Check global game conditions
    */
   loopInterval() {
     if (this.stopped) {
@@ -44,7 +54,10 @@ export default class Loop {
   }
 
   /**
+   * Loop mode: Frame-based.
    *
+   * - Run renderer
+   * - Check global game conditions
    */
   loop() {
     if (this.stopped) {
@@ -58,10 +71,12 @@ export default class Loop {
   }
 
   /**
-   *
+   * Stop loop.
    */
   stop() {
-    window.cancelAnimationFrame(this.loop);
+    const loopReference: any = this.loop;
+
+    window.cancelAnimationFrame(loopReference);
     clearInterval(this.interval);
 
     this.stopped = true;
@@ -69,14 +84,12 @@ export default class Loop {
   }
 
   /**
-   *
+   * Events.
    */
   bindEvents() {
     window.addEventListener(
       'score:game-end',
-      (event) => {
-        const objects = event.detail.data;
-
+      (_event: any) => {
         this.stop();
       },
       true,
@@ -84,7 +97,7 @@ export default class Loop {
 
     window.addEventListener(
       'controls:keydown',
-      (event) => {
+      (event: any) => {
         const ev = event.detail.data;
 
         // Manually run

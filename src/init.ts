@@ -1,5 +1,5 @@
 // Core / Generators
-import ProjectileGenerator from './core/generator/projectile.ts';
+import ProjectileGenerator from './core/generator/projectile';
 
 // Core / Objects
 import ShipEnemyObject from './core/objects/ships/enemy';
@@ -21,7 +21,7 @@ import CollisionProjectileHelper from './helper/collision-projectile';
 import ViewHelper from './helper/view';
 
 /**
- *
+ * App entry point.
  */
 export default class Init {
   #config: any = {
@@ -46,7 +46,7 @@ export default class Init {
   view: ViewHelper;
 
   /**
-   *
+   * Create instances.
    */
   constructor() {
     this.stage = new Stage();
@@ -106,7 +106,7 @@ export default class Init {
   }
 
   /**
-   *
+   * Initialize game.
    */
   init() {
     this.setup();
@@ -114,7 +114,7 @@ export default class Init {
   }
 
   /**
-   *
+   * Setup scene.
    */
   setup() {
     const view: ViewHelper = this.view;
@@ -134,7 +134,7 @@ export default class Init {
   }
 
   /**
-   *
+   * Start game loop and render.
    */
   start() {
     window.onload = () => {

@@ -1,7 +1,7 @@
 import Vector2D from 'lib/vector2d';
 
 /**
- * Collision detection + Bounce effect
+ * Collision detection + Bounce effect.
  *
  * Todo
  * - Fix: Sometimes extreme vector values are created when objects collide
@@ -14,7 +14,7 @@ export default class CollisionBounceHelper {
   score: number;
 
   /**
-   *
+   * Set game variables.
    */
   constructor() {
     // Values
@@ -22,7 +22,7 @@ export default class CollisionBounceHelper {
   }
 
   /**
-   *
+   * Test ships.
    */
   testObjects(objects: any) {
     const vector: Vector2D = new Vector2D(0, 0);

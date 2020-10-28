@@ -1,13 +1,14 @@
 /**
- *
+ * Input controls.
  */
 export default class Controls {
-  #container;
+  view: any;
+  container: any;
 
   /**
-   *
+   * Set view reference and bind events.
    */
-  constructor(params) {
+  constructor(params: any) {
     // Instance
     this.view = params.view;
 
@@ -18,32 +19,32 @@ export default class Controls {
   }
 
   /**
-   *
+   * Bind events:
    */
   bindEvents() {
     const { container } = this;
 
     container.addEventListener(
       'mousedown',
-      (event) => {
+      (_event: any) => {
         this.onEvent('controls:mousedown');
       },
-      true
+      true,
     );
 
     window.addEventListener(
       'keydown',
-      (event) => {
+      (_event: any) => {
         this.onEvent('controls:keydown');
       },
-      true
+      true,
     );
   }
 
   /**
-   *
+   * Event callback.
    */
-  onEvent(eventName) {
+  onEvent(eventName: string) {
     const { container } = this;
 
     const ev = new CustomEvent(eventName, {

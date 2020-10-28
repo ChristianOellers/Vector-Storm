@@ -1,11 +1,25 @@
+import Vector2D from 'lib/vector2d';
+
 /**
- *
+ * Weapon type - Projectile.
  */
 export default class ProjectileWeaponObject {
+  view: any;
+  x: number;
+  y: number;
+  angle: number;
+  velocityVector: Vector2D;
+  color: string;
+  size: number;
+  owner: any;
+  radius: number;
+  thrust: number;
+  isDead: boolean;
+
   /**
-   *
+   * Set view reference and object config.
    */
-  constructor(params) {
+  constructor(params: any) {
     // Instance
     this.view = params.view; // Class: View
     this.x = params.x;
@@ -23,7 +37,7 @@ export default class ProjectileWeaponObject {
   }
 
   /**
-   *
+   * Draw object.
    */
   draw() {
     const { ctx } = this.view;
@@ -55,7 +69,7 @@ export default class ProjectileWeaponObject {
   }
 
   /**
-   *
+   * Move object.
    */
   move() {
     this.x += this.velocityVector.x;

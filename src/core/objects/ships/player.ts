@@ -199,7 +199,7 @@ export default class ShipPlayerObject {
 
   /**
    * Set speed move.
-   * Time
+   * Set state transition.
    */
   setFastMove() {
     if (this.isMovingFast) {
@@ -216,16 +216,15 @@ export default class ShipPlayerObject {
   }
 
   /**
-   *
+   * Set state transition on hits.
+   * Draw effects.
    */
   takeHit() {
     if (!this.isTransitioning) {
       this.isTransitioning = true;
 
-      // Score
       this.score -= 10;
 
-      // State
       this.state = 'hit';
       this.timeInState = this.transitionTime;
 
@@ -243,7 +242,7 @@ export default class ShipPlayerObject {
    * Bind game events to internal callback functions.
    */
   triggerFx() {
-    const el = document.getElementById('fx');
+    const el: any = document.getElementById('fx');
 
     el.classList.add('shake');
 
@@ -260,23 +259,23 @@ export default class ShipPlayerObject {
 
     container.addEventListener(
       'mousedown',
-      (event) => {
-        this.onFlyStart();
+      (_event: any) => {
+        this.onFlyStart(null);
       },
       true,
     );
 
     container.addEventListener(
       'mouseup',
-      (event) => {
-        this.onFlyStop();
+      (_event: any) => {
+        this.onFlyStop(null);
       },
       true,
     );
 
     container.addEventListener(
       'mousemove',
-      (event) => {
+      (event: MouseEvent) => {
         this.onMove(event);
       },
       true,
@@ -284,7 +283,7 @@ export default class ShipPlayerObject {
 
     window.addEventListener(
       'controls:keydown',
-      (event) => {
+      (event: any) => {
         const ev = event.detail.data;
 
         if (ev.shiftKey) {
@@ -298,7 +297,7 @@ export default class ShipPlayerObject {
   /**
    * Set mouse position within view.
    */
-  onMove(event) {
+  onMove(event: MouseEvent) {
     const bounds = this.view.canvas.getBoundingClientRect();
 
     this.mouseX = event.clientX - bounds.left;
@@ -308,7 +307,7 @@ export default class ShipPlayerObject {
   /**
    * Create new thrust vector.
    */
-  onFlyStart(_event) {
+  onFlyStart(_event: any) {
     let { thrust } = this;
 
     thrust = new Vector2D(this.mouseX - this.x, this.mouseY - this.y);
@@ -322,7 +321,7 @@ export default class ShipPlayerObject {
   /**
    * Reset thrust.
    */
-  onFlyStop(_event) {
+  onFlyStop(_event: any) {
     this.thrust = new Vector2D(0, 0);
   }
 }

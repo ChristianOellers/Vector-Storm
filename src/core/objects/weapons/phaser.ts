@@ -1,11 +1,22 @@
+import Vector2D from 'lib/vector2d';
+
 /**
- *
+ * Weapon type - Phaser.
  */
 export default class PhaserWeaponObject {
+  view: any;
+  vector1: Vector2D;
+  vector2: Vector2D;
+  color: string;
+  size: number;
+  lifespan: number;
+  owner: any;
+  isDead: boolean;
+
   /**
-   *
+   * Set view reference and object config.
    */
-  constructor(params) {
+  constructor(params: any) {
     // Instance
     this.view = params.view; // Class: View
     this.vector1 = params.vector1;
@@ -20,7 +31,7 @@ export default class PhaserWeaponObject {
   }
 
   /**
-   *
+   * Draw object.
    */
   draw() {
     if (this.isDead) {
@@ -46,7 +57,7 @@ export default class PhaserWeaponObject {
   }
 
   /**
-   *
+   * Move as long as alive, else remove.
    */
   move() {
     this.lifespan--;

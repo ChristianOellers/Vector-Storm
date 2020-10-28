@@ -1,5 +1,5 @@
 /**
- *
+ * Test projectile collisions.
  */
 export default class CollisionProjectileHelper {
   view: any;
@@ -8,7 +8,7 @@ export default class CollisionProjectileHelper {
   testOwner: string;
 
   /**
-   *
+   * Set object references.
    */
   constructor(params: any) {
     // Instance

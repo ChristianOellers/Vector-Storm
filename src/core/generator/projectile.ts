@@ -113,16 +113,16 @@ export default class ProjectileGenerator {
     window.addEventListener(
       'collision:hit',
       (event: any) => {
-        const objects: any = event.detail.data;
+        const { o1, o2 }: any = event.detail.data;
 
-        this.createProjectileEnemy(...objects);
+        this.createProjectileEnemy(o1, o2);
 
         // Select by chance
         if (Math.random() > 0.5) {
-          this.createProjectile2(...objects);
+          this.createProjectile2(o1, o2);
         } else {
           for (let i = 0; i < this.multiShot; i++) {
-            this.createProjectile1(...objects);
+            this.createProjectile1(o1, o2);
           }
         }
       },
