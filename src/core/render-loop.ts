@@ -1,11 +1,22 @@
 /**
- *
+ * Render frames depending on loop.
  */
 export default class RenderLoop {
+  collision: any;
+  collisionBounce: any;
+  collisionProjectile: any;
+  stage: any;
+  view: any;
+  collisionTypes: string[];
+  isAnimating: boolean;
+  clear: boolean;
+  smear: number;
+  animateTime: number;
+
   /**
-   *
+   * Set dependencies and bind events.
    */
-  constructor(params) {
+  constructor(params: any) {
     // Instance
     this.collision = params.collision;
     this.collisionBounce = params.collisionBounce;
@@ -24,7 +35,7 @@ export default class RenderLoop {
   }
 
   /**
-   *
+   * Update objects, render, hit test.
    */
   run() {
     const { objects } = this.stage;
@@ -40,7 +51,9 @@ export default class RenderLoop {
   }
 
   /**
-   * Todo: Outsource collision detection (inject, pass objects, let them filter)
+   * Hit test objects.
+   *
+   * @todo Outsource collision detection (inject, pass objects, let them filter)
    */
   testObjects() {
     const { objects } = this.stage;
@@ -49,7 +62,7 @@ export default class RenderLoop {
     const testCollisionShipBounce = [];
     const testCollisionProjectile = [];
 
-    // Filter to test collideable objects only
+    // Filter to test objects that can collide only
     for (let i = 0; i < objects.length; i++) {
       const type = objects[i].__proto__.constructor.name;
       const isMatch = this.collisionTypes.indexOf(type) >= 0;
@@ -68,7 +81,7 @@ export default class RenderLoop {
   }
 
   /**
-   *
+   * Reset view by transparent overlay (for effect reasons).
    */
   reset() {
     const { view } = this;
@@ -85,7 +98,7 @@ export default class RenderLoop {
   }
 
   /**
-   *
+   * Set speed animation effect.
    */
   setFx() {
     if (this.isAnimating) {
@@ -104,12 +117,12 @@ export default class RenderLoop {
   }
 
   /**
-   *
+   * Events.
    */
   bindEvents() {
     window.addEventListener(
       'controls:keydown',
-      (event) => {
+      (event: any) => {
         const ev = event.detail.data;
 
         // Manually run

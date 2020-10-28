@@ -1,25 +1,29 @@
 import Vector2D from 'lib/vector2d';
 
 /**
- *
+ * Collisions with player ship and scoring.
  */
 export default class CollisionHelper {
+  view: any;
+  playerType: string;
+  scoreIncrement: number;
+
   /**
-   *
+   * Set view reference.
    */
-  constructor(params) {
+  constructor(params: any) {
     // Instance
     this.view = params.view; // Class: View
 
     // Values
     this.playerType = 'ShipPlayerObject';
-    this.score = 1;
+    this.scoreIncrement = 1;
   }
 
   /**
-   * Ships only (radiusRange)
+   * Radius-based collision test for object.
    */
-  testObjects(objects) {
+  testObjects(objects: any) {
     const vector = new Vector2D(0, 0);
     const count = objects.length;
     let distance = 0;
@@ -48,14 +52,13 @@ export default class CollisionHelper {
 
   /**
    * Check if direction of 2 circles are aligned.
-   * 
-   * Todo - Issues
-   * - BOTH circles can match 'hit', although only one is pointing in the proper direction.
-   * 
-   * *1) Mirror angle by adding +180 fixes the calculation, although it now unwantedly works for both circles.
+   *
+   * *1) Mirror angle by adding +180 fixes the calculation, although it now works for both circles (unwanted).
    * *2) Angle MUST be reset or all other calculations will break.
+   *
+   * @todo Issue: Both circles can match 'hit', although only one is pointing in the proper direction.
    */
-  notify(o1, o2) {
+  notify(o1: any, o2: any) {
     if (!this.hitToPlayer(o1, o2)) {
       return;
     }
@@ -82,17 +85,17 @@ export default class CollisionHelper {
    * Used to distinct player from other objects.
    * Other objects only interact with the player, but not with themselves.
    */
-  hitToPlayer(o1, o2) {
+  hitToPlayer(o1: any, o2: any) {
     const { playerType } = this;
 
     return o1.__proto__.constructor.name === playerType || o2.__proto__.constructor.name === playerType;
   }
 
-  // Connect circles that can hit each other
   /**
-   *
+   * Connect circles that can hit each other.
    */
-  draw(o1, o2) {
+  draw(o1: any, o2: any) {
+    throw new Error('Remove unused code');
     const { ctx } = this.view;
     const v1 = new Vector2D(o1.x, o1.y);
     const v2 = new Vector2D(o2.x, o2.y);
@@ -113,13 +116,13 @@ export default class CollisionHelper {
   /**
    *
    */
-  drawPoint(x, y) {
+  drawPoint(x: number, y: number) {
+    throw new Error('Remove unused code');
     const { ctx } = this.view;
     const size = 4;
 
     ctx.save();
 
-    // ctx.fillStyle = 'rgba(0, 0, 0, 1)';
     ctx.fillStyle = 'rgba(255, 255, 255, 1)';
     ctx.fillRect(x - size / 2, y - size / 2, size, size);
 
@@ -127,9 +130,9 @@ export default class CollisionHelper {
   }
 
   /**
-   *
+   * Publish collision event.
    */
-  dispatchHitEvent(o1, o2) {
+  dispatchHitEvent(o1: any, o2: any) {
     const ev = new CustomEvent('collision:hit', {
       detail: {
         data: [o1, o2],
@@ -142,11 +145,11 @@ export default class CollisionHelper {
   }
 
   /**
-   * o1 = Shooter.
+   * o1 = Shooter
    * o2 = Hit target
    */
-  updateScore(o1, o2) {
-    o1.score += this.score;
-    o2.score -= this.score;
+  updateScore(o1: any, o2: any) {
+    o1.score += this.scoreIncrement;
+    o2.score -= this.scoreIncrement;
   }
 }

@@ -1,7 +1,7 @@
 import Vector2D from 'lib/vector2d';
 
 /**
- * Collision detection + Bounce effect
+ * Collision detection + Bounce effect.
  *
  * Todo
  * - Fix: Sometimes extreme vector values are created when objects collide
@@ -11,8 +11,10 @@ import Vector2D from 'lib/vector2d';
  * - O'Reilly - Supercharged JavaScript Graphics - Raffaele Cecco
  */
 export default class CollisionBounceHelper {
+  score: number;
+
   /**
-   *
+   * Set game variables.
    */
   constructor() {
     // Values
@@ -20,18 +22,18 @@ export default class CollisionBounceHelper {
   }
 
   /**
-   *
+   * Test ships.
    */
-  testObjects(objects) {
-    const vector = new Vector2D(0, 0);
-    const count = objects.length;
-    let distance = 0;
+  testObjects(objects: any) {
+    const vector: Vector2D = new Vector2D(0, 0);
+    const count: number = objects.length;
+    let distance: number = 0;
 
     // Check objects against each other.
     // Inner loop starts one past outer loop for efficient testing:
     // Prevent self and duplicate checks - A against B but not B against A
     for (let c = 0; c < count; c++) {
-      const o1 = objects[c];
+      const o1: any = objects[c];
 
       for (let i = c + 1; i < count; i++) {
         const o2 = objects[i];
@@ -59,16 +61,16 @@ export default class CollisionBounceHelper {
   /**
    * o1 = Moving/Player ship.
    */
-  bounce(o1, o2) {
-    const collisionAngle = Math.atan2(o1.y - o2.y, o1.x - o2.x);
-    const length1 = o1.velocityVector.sizeSqrt();
-    const length2 = o2.velocityVector.sizeSqrt();
+  bounce(o1: any, o2: any) {
+    const collisionAngle: number = Math.atan2(o1.y - o2.y, o1.x - o2.x);
+    const length1: number = o1.velocityVector.sizeSqrt();
+    const length2: number = o2.velocityVector.sizeSqrt();
 
-    const directionAngle1 = Math.atan2(o1.velocityVector.y, o1.velocityVector.x);
-    const directionAngle2 = Math.atan2(o2.velocityVector.y, o2.velocityVector.x);
+    const directionAngle1: number = Math.atan2(o1.velocityVector.y, o1.velocityVector.x);
+    const directionAngle2: number = Math.atan2(o2.velocityVector.y, o2.velocityVector.x);
 
-    const newVx1 = length1 * Math.cos(directionAngle1 - collisionAngle);
-    const newVx2 = length2 * Math.cos(directionAngle2 - collisionAngle);
+    const newVx1: number = length1 * Math.cos(directionAngle1 - collisionAngle);
+    const newVx2: number = length2 * Math.cos(directionAngle2 - collisionAngle);
 
     o1.velocityVector.y = length1 * Math.sin(directionAngle1 - collisionAngle);
     o2.velocityVector.y = length2 * Math.sin(directionAngle2 - collisionAngle);
@@ -84,11 +86,10 @@ export default class CollisionBounceHelper {
 
   /**
    * o1 = Ship being hit.
-   * o2 = Shooter. 
+   * o2 = Shooter.
    */
-  updateScore(o1, o2) {
-    const { container } = this;
-    const { score } = this;
+  updateScore(o1: any, o2: any) {
+    const score: number = this.score;
 
     o1.score += score;
     o2.score -= score;
@@ -100,7 +101,7 @@ export default class CollisionBounceHelper {
    * Bind game events to internal callback functions.
    */
   triggerFx() {
-    const el = document.getElementById('fx');
+    const el: HTMLElement = <HTMLElement>document.getElementById('fx');
 
     el.classList.add('shake');
 

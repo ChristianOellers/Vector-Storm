@@ -1,11 +1,17 @@
 /**
- *
+ * Scoring.
  */
 export default class Score {
+  view: any;
+  player: any;
+  scoreWin: number;
+  scoreLose: number;
+  container: any;
+
   /**
-   *
+   * Set references and game settings.
    */
-  constructor(params) {
+  constructor(params: any) {
     // Instance
     this.view = params.view;
     this.player = params.player;
@@ -24,18 +30,18 @@ export default class Score {
     const { score } = player;
 
     if (score >= this.scoreWin) {
-      this.onEvent('score:game-end');
+      this.triggerEvent('score:game-end');
       this.draw('win');
     } else if (score <= this.scoreLose) {
-      this.onEvent('score:game-end');
+      this.triggerEvent('score:game-end');
       this.draw('lose');
     }
   }
 
   /**
-   *
+   * Draw score depending on game state.
    */
-  draw(state) {
+  draw(state: string) {
     const { view } = this;
     const score = this.player.score | 0;
     const { ctx } = view;
@@ -71,14 +77,14 @@ export default class Score {
   }
 
   /**
-   *
+   * Trigger event.
    */
-  onEvent(eventName) {
+  triggerEvent(eventName: string) {
     const { container } = this;
 
     const ev = new CustomEvent(eventName, {
       detail: {
-        data: event,
+        data: null,
       },
     });
 

@@ -1,11 +1,18 @@
 /**
- *
+ * Handle canvas element and 2D drawing context.
  */
 export default class ViewHelper {
+  canvas: any;
+  ctx: any;
+  width: number;
+  height: number;
+  centerX: number;
+  centerY: number;
+
   /**
-   *
+   * Set canvas element reference and screen size.
    */
-  constructor(params) {
+  constructor(params: any) {
     // Instance
     this.canvas = document.getElementById(params.domElementId);
 
@@ -18,16 +25,18 @@ export default class ViewHelper {
   }
 
   /**
-   *
+   * Get random horizontal position on screen.
+   * Respect object size to ensure it's always visible.
    */
-  getRandomPositionX(buffer) {
-    return -buffer * 2 + Math.random() * this.width + buffer;
+  getRandomPositionX(objectSize: number) {
+    return -objectSize * 2 + Math.random() * this.width + objectSize;
   }
 
   /**
-   *
+   * Get random vertical position on screen.
+   * Respect object size to ensure it's always visible.
    */
-  getRandomPositionY(buffer) {
-    return -buffer + Math.random() * this.height + buffer;
+  getRandomPositionY(objectSize: number) {
+    return -objectSize + Math.random() * this.height + objectSize;
   }
 }

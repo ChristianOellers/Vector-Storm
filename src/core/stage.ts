@@ -1,9 +1,11 @@
 /**
- *
+ * Object pool.
  */
 export default class Stage {
+  objects: any[];
+
   /**
-   *
+   * Hold objects.
    */
   constructor() {
     // Values
@@ -11,16 +13,16 @@ export default class Stage {
   }
 
   /**
-   *
+   * Add single object.
    */
-  add(object) {
+  add(object: any) {
     this.objects.push(object);
   }
 
   /**
-   *
+   * Set many objects.
    */
-  set(objects) {
+  set(objects: any) {
     this.objects = objects;
   }
 }

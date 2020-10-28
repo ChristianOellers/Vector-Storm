@@ -1,5 +1,5 @@
 // Core / Generators
-import ProjectileGenerator from './core/generator/projectile.ts';
+import ProjectileGenerator from './core/generator/projectile';
 
 // Core / Objects
 import ShipEnemyObject from './core/objects/ships/enemy';
@@ -21,10 +21,10 @@ import CollisionProjectileHelper from './helper/collision-projectile';
 import ViewHelper from './helper/view';
 
 /**
- *
+ * App entry point.
  */
 export default class Init {
-  #config = {
+  #config: any = {
     runGame: true,
     scoreWin: 200,
     scoreLose: -100,
@@ -34,14 +34,19 @@ export default class Init {
     },
   };
 
-  loop: any;
-  renderLoop: any;
-  shipPlayer: any;
-  stage: any;
-  view: any;
+  // Core / Objects
+  shipPlayer: ShipPlayerObject;
+
+  // Core
+  loop: Loop;
+  renderLoop: RenderLoop;
+  stage: Stage;
+
+  // Helper
+  view: ViewHelper;
 
   /**
-   *
+   * Create instances.
    */
   constructor() {
     this.stage = new Stage();
@@ -71,7 +76,7 @@ export default class Init {
       x: this.view.centerX + 20,
       y: this.view.centerY - 20,
       id: 0,
-    }); 
+    });
 
     const score = new Score({
       view: this.view,
@@ -101,7 +106,7 @@ export default class Init {
   }
 
   /**
-   *
+   * Initialize game.
    */
   init() {
     this.setup();
@@ -109,14 +114,14 @@ export default class Init {
   }
 
   /**
-   *
+   * Setup scene.
    */
   setup() {
-    const view = this.view;
+    const view: ViewHelper = this.view;
 
     this.stage.add(this.shipPlayer);
 
-    for (let i = 0; i < this.#config.enemies; i++) {
+    for (let i: number = 0; i < this.#config.enemies; i++) {
       const ship = new ShipEnemyObject({
         view,
         x: view.getRandomPositionX(20), // 20 = Ship size
@@ -129,7 +134,7 @@ export default class Init {
   }
 
   /**
-   *
+   * Start game loop and render.
    */
   start() {
     window.onload = () => {
