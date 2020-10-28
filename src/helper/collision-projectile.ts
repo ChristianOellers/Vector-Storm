@@ -16,7 +16,7 @@ export default class CollisionProjectileHelper {
     this.player = params.player; // Class: *
 
     this.testType = 'ProjectileWeaponObject';
-    // this.testOwner = 'ShipEnemyObject';
+    this.testOwner = 'ShipEnemyObject';
   }
 
   /**

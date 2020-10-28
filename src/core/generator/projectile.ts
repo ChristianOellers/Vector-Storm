@@ -1,13 +1,20 @@
 import Vector2D from 'lib/vector2d';
 
 /**
- *
+ * Generate weapon projectiles.
  */
 export default class ProjectileGenerator {
+  stage: any;
+  view: any;
+  projectile1: any;
+  projectile2: any;
+  multiShot: number;
+  container: any;
+
   /**
-   *
+   * Set object references and game mode settings.
    */
-  constructor(params) {
+  constructor(params: any) {
     // Instance
     this.stage = params.stage;
     this.view = params.view; // Class: View
@@ -22,9 +29,9 @@ export default class ProjectileGenerator {
   }
 
   /**
-   *
+   * Create projectile for type 1.
    */
-  createProjectile1(o1, o2) {
+  createProjectile1(o1: any, o2: any) {
     const vector = new Vector2D(o2.x, o2.y);
     const rnd = -(Math.random() * 50) + 25;
 
@@ -51,9 +58,9 @@ export default class ProjectileGenerator {
   }
 
   /**
-   *
+   * Create projectile for type 2.
    */
-  createProjectile2(o1, o2) {
+  createProjectile2(o1: any, o2: any) {
     const v1 = new Vector2D(o1.x, o1.y);
     const v2 = new Vector2D(o2.x, o2.y);
 
@@ -72,9 +79,9 @@ export default class ProjectileGenerator {
   }
 
   /**
-   *
+   * Create enemy projectile (variation of type 1).
    */
-  createProjectileEnemy(o1, o2) {
+  createProjectileEnemy(o1: any, o2: any) {
     const vector = new Vector2D(o1.x, o1.y);
 
     vector.x = o1.x - o2.x;
@@ -100,13 +107,13 @@ export default class ProjectileGenerator {
   }
 
   /**
-   * On collisions
+   * On collisions.
    */
   bindEvents() {
     window.addEventListener(
       'collision:hit',
-      (event) => {
-        const objects = event.detail.data;
+      (event: any) => {
+        const objects: any = event.detail.data;
 
         this.createProjectileEnemy(...objects);
 

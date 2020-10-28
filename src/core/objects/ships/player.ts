@@ -1,13 +1,42 @@
 import Vector2D from 'lib/vector2d';
 
 /**
- *
+ * Player ship.
  */
 export default class ShipPlayerObject {
+  view: any;
+  x: number;
+  y: number;
+  id: number;
+  container: any;
+  score: number;
+  radiusRange: number;
+  radius: number;
+  angle: number;
+  rotationSpeed: number;
+  direction: number;
+  sizePoint: number;
+  sizeShip: number;
+  mass: number;
+  mouseX: number;
+  mouseY: number;
+  speed: number;
+  speedMax: number;
+  thrustBoost: number;
+  thrust: Vector2D;
+  velocityVector: Vector2D;
+  gravity: number;
+  isMovingFastTime: number;
+  isMovingFast: boolean;
+  isTransitioning: boolean;
+  transitionTime: number;
+  timeInState: number;
+  state: string;
+
   /**
-   *
+   * Set view reference and object defaults.
    */
-  constructor(params) {
+  constructor(params: any) {
     // Instance
     this.view = params.view; // Class: View
     this.x = params.x;
@@ -27,9 +56,10 @@ export default class ShipPlayerObject {
     this.mass = 10; // ^= sizeShip
     this.mouseX = 0;
     this.mouseY = 0;
+    this.speed = 0;
     this.speedMax = 5;
     this.thrustBoost = 0.1;
-    this.thrust = new Vector2D(0, 0, 15, 15);
+    this.thrust = new Vector2D(0, 0);
     this.velocityVector = new Vector2D(0, 0);
     this.gravity = 0.97;
 
@@ -45,13 +75,13 @@ export default class ShipPlayerObject {
   }
 
   /**
-   *
+   * Draw object.
    */
   draw() {
     const { ctx } = this.view;
     const { sizePoint } = this;
     const { sizeShip } = this;
-    const score = Number.parseFloat(this.score).toFixed(1);
+    const score = Number.parseFloat(this.score.toString()).toFixed(1);
 
     ctx.save();
 
@@ -84,11 +114,10 @@ export default class ShipPlayerObject {
   }
 
   /**
-   *
+   * Draw object in a certain state.
    */
   drawState() {
     const { ctx } = this.view;
-    const { sizePoint } = this;
     const { sizeShip } = this;
 
     let sizeShape = sizeShip;
@@ -96,7 +125,6 @@ export default class ShipPlayerObject {
     let alphaCenter = 0.25;
     let alphaRange = 0.1;
     let colorRed = 255;
-    let percent;
 
     this.timeInState *= 0.9;
 
@@ -131,7 +159,7 @@ export default class ShipPlayerObject {
   }
 
   /**
-   *
+   * Position and move objects.
    */
   move() {
     this.moveControl();
@@ -150,11 +178,10 @@ export default class ShipPlayerObject {
   }
 
   /**
-   *
+   * Reposition physically.
    */
   moveControl() {
     const { speedMax } = this;
-    const speed = 0;
 
     this.x += this.velocityVector.x;
     this.y += this.velocityVector.y;
@@ -171,7 +198,8 @@ export default class ShipPlayerObject {
   }
 
   /**
-   *
+   * Set speed move.
+   * Time
    */
   setFastMove() {
     if (this.isMovingFast) {

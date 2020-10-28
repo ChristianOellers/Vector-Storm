@@ -1,13 +1,31 @@
 import Vector2D from 'lib/vector2d';
 
 /**
- *
+ * Enemy ships.
  */
 export default class ShipEnemyObject {
+  view: any;
+  x: number;
+  y: number;
+  id: number;
+  color: string;
+  container: any;
+  score: number;
+  radiusRange: number;
+  radius: number;
+  angle: number;
+  rotationSpeed: number;
+  direction: number;
+  sizePoint: number;
+  sizeShip: number;
+  mass: number;
+  speed: number;
+  velocityVector: Vector2D;
+
   /**
-   *
+   * Set view reference and object defaults.
    */
-  constructor(params) {
+  constructor(params: any) {
     // Instance
     this.view = params.view; // Class: View
     this.x = params.x;
@@ -16,14 +34,13 @@ export default class ShipEnemyObject {
     this.color = params.color || '255, 192, 96';
 
     // Values
-    this.direction = (-1 + Math.random() * 2) | 0;
     this.container = this.view.canvas;
     this.score = 0;
     this.radiusRange = 100; // Collision detection, Visual
     this.radius = 10; // Collision detection, Visual
     this.angle = 0; // Generated
     this.rotationSpeed = 5; // Factor
-    this.direction = 1; // 1 | -1
+    this.direction = 1; // 1 | -1 | (-1 + Math.random() * 2) | 0;
     this.sizePoint = 4;
     this.sizeShip = 20;
     this.mass = 20; // ^= sizeShip
@@ -32,14 +49,14 @@ export default class ShipEnemyObject {
   }
 
   /**
-   *
+   * Draw object.
    */
   draw() {
     const { ctx } = this.view;
     const { sizePoint } = this;
     const { sizeShip } = this;
     const { color } = this;
-    const score = Number.parseFloat(this.score).toFixed(1);
+    const score = Number.parseFloat(this.score.toString()).toFixed(1);
 
     ctx.save();
 
@@ -84,7 +101,7 @@ export default class ShipEnemyObject {
   }
 
   /**
-   *
+   * Position and move objects.
    */
   move() {
     this.moveControl();
@@ -103,13 +120,12 @@ export default class ShipEnemyObject {
   }
 
   /**
-   * Reposition
-   * Y = Keep a bit buffer
+   * Reposition object randomly.
+   * Y = Keep a bit buffer.
    */
   moveControl() {
     const { view } = this;
     const size = this.sizeShip;
-    const bufferY = 3;
 
     this.y += this.speed;
 
