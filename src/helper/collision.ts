@@ -92,44 +92,6 @@ export default class CollisionHelper {
   }
 
   /**
-   * Connect circles that can hit each other.
-   */
-  draw(o1: any, o2: any) {
-    throw new Error('Remove unused code');
-    const { ctx } = this.view;
-    const v1 = new Vector2D(o1.x, o1.y);
-    const v2 = new Vector2D(o2.x, o2.y);
-
-    ctx.save();
-
-    ctx.beginPath();
-    ctx.strokeStyle = 'rgba(255, 128, 0, 1)';
-    ctx.lineWidth = 1;
-    ctx.moveTo(v1.x, v1.y);
-    ctx.lineTo(v2.x, v2.y);
-    ctx.closePath();
-    ctx.stroke();
-
-    ctx.restore();
-  }
-
-  /**
-   *
-   */
-  drawPoint(x: number, y: number) {
-    throw new Error('Remove unused code');
-    const { ctx } = this.view;
-    const size = 4;
-
-    ctx.save();
-
-    ctx.fillStyle = 'rgba(255, 255, 255, 1)';
-    ctx.fillRect(x - size / 2, y - size / 2, size, size);
-
-    ctx.restore();
-  }
-
-  /**
    * Publish collision event.
    */
   dispatchHitEvent(o1: any, o2: any) {
