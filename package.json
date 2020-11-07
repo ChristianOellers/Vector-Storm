@@ -4,9 +4,7 @@
   "author": "Christian Oellers",
   "license": "MIT",
   "version": "0.0.1",
-  "main": "src/index.html",
   "private": true,
-  "sideEffects": false,
   "scripts": {
     "build": "npx webpack",
     "start": "npx webpack serve",
