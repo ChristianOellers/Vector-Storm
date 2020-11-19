@@ -7,6 +7,7 @@
 - [Features](#features)
 - [Limitations](#limitations)
 - [How to use](#how-to-use)
+- [Privacy](#privacy)
 - [Todo](#todo)
 
 <br>
@@ -30,7 +31,8 @@ Over time the code got a bit messy and it's not intended to sustain ;)
 
 Find the live version to play here:
 
-- [Play game »](https://christianoellers.github.io/Vector-Storm)
+- [Vercel »](https://vector-storm-27ctdpx5e.vercel.app)
+- [GitHub »](https://christianoellers.github.io/Vector-Storm)
 
 <br><br>
 
@@ -57,6 +59,12 @@ Find the live version to play here:
 
 1. Open the 'index.html' in a browser like Google Chrome on any Desktop browser.
 2. Read instructions how to play & enjoy!
+
+<br><br>
+
+## Privacy
+
+For your consideration; besides GitHub, this project runs [Sentry](https://sentry.io) for bug tracking and is also hosted on [Vercel](https://vercel.com).
 
 <br><br>
 
