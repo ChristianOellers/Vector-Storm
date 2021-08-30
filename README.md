@@ -1,6 +1,8 @@
 [![Vector-Storm](teaser.png)](https://christianoellers.github.io/Vector-Storm)
 
-# 2D Arcade space shooter
+# Vector Storm
+
+2D Arcade space shooter
 
 - [About](#about)
 - [Examples](#examples)
