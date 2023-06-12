@@ -11,6 +11,8 @@
     "watch": "npx webpack --watch",
     "lint:ts": "npx flow",
     "lint:scss": "npx stylelint 'src/**/*.scss' --syntax scss",
+    "prettier:check": "prettier --check \"src/**/*.{ts,scss}\"",
+    "prettierc:clean": "prettier --write \"src/**/*.{ts,scss}\"",
     "test:jest": "npx jest",
     "test:jest:coverage": "npx jest --coverage",
     "project:clean": "rm -rf node_modules"
