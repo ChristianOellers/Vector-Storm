@@ -26,6 +26,13 @@ Classic arcade style space shooter with Canvas 2D, ES6 and HTML 5.
 A 'Proof of concept' and technical experiment about game architecture and maths.
 Over time the code got a bit messy and it's not intended to sustain ;)
 
+### Compatibility
+
+- Browser with Canvas 2D API support
+- Desktop PC with min. 700px screen width
+- Decent computing/ graphics power (can be resource intense)
+- Mouse, keyboard, audio output
+
 <br><br>
 
 ## Examples
