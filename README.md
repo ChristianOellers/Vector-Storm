@@ -15,10 +15,6 @@
 
 ---
 
-[![Quality Gate status](https://sonarcloud.io/api/project_badges/measure?project=ChristianOellers_Vector-Storm&metric=alert_status)](https://sonarcloud.io/dashboard?id=ChristianOellers_Vector-Storm)
-
-<br><br>
-
 ## About
 
 Classic arcade style space shooter with Canvas 2D, ES6 and HTML 5.
